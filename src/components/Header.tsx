@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Why JSB', href: '#why' },
+  { label: 'CHOICE Innovate', href: '#choice' },
   { label: 'Partners', href: '#partners' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -28,22 +29,32 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2.5 group">
-          <div className="relative">
+        <div className="flex items-center gap-4">
+          <a href="#home" className="flex items-center gap-2.5 group">
+            <div className="relative">
+              <img
+                src="/JSB_Firm_Logo.png"
+                alt="JSB Firm logo"
+                className="w-10 h-10 rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full gold-gradient" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-navy-900 font-semibold text-lg tracking-tight">JSB Firm</span>
+              <span className="text-navy-400 text-[10px] tracking-[0.18em] uppercase font-medium">
+                Insurance Solutions
+              </span>
+            </div>
+          </a>
+          <div className="hidden sm:block w-px h-8 bg-navy-200" />
+          <a href="#choice" className="hidden sm:flex items-center gap-2 group">
             <img
-              src="/JSB_Firm_Logo.png"
-              alt="JSB Firm logo"
-              className="w-10 h-10 rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+              src="/1.png"
+              alt="CHOICE Innovate logo"
+              className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full gold-gradient" />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-navy-900 font-semibold text-lg tracking-tight">JSB Firm</span>
-            <span className="text-navy-400 text-[10px] tracking-[0.18em] uppercase font-medium">
-              Insurance Solutions
-            </span>
-          </div>
-        </a>
+          </a>
+        </div>
 
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
@@ -94,9 +105,17 @@ export default function Header() {
             </a>
           ))}
           <a
+            href="#choice"
+            onClick={() => setOpen(false)}
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full border border-navy-200 bg-white px-5 py-3 text-sm font-medium text-navy-900"
+          >
+            <img src="/1.png" alt="CHOICE" className="h-5 w-auto" />
+            CHOICE Innovate
+          </a>
+          <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-3 text-sm font-medium text-white"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-3 text-sm font-medium text-white"
           >
             <Calendar className="w-4 h-4 text-gold" />
             Book a Meeting

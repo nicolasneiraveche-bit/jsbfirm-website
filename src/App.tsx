@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import WhyJSB from '@/components/WhyJSB';
+import ChoiceInnovate from '@/components/ChoiceInnovate';
 import Approach from '@/components/Approach';
 import Partners from '@/components/Partners';
 import CTA from '@/components/CTA';
@@ -21,6 +22,7 @@ function App() {
         <About />
         <Services />
         <WhyJSB />
+        <ChoiceInnovate />
         <Approach />
         <Partners />
         <CTA />
