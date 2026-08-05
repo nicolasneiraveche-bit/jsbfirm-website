@@ -1,35 +1,24 @@
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import WhyJSB from '@/components/WhyJSB';
-import ChoiceInnovate from '@/components/ChoiceInnovate';
-import Approach from '@/components/Approach';
-import Partners from '@/components/Partners';
-import CTA from '@/components/CTA';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from '@/components/Layout';
+import Home from '@/pages/Home';
+import AboutPage from '@/pages/About';
+import ServicesPage from '@/pages/Services';
+import PartnersPage from '@/pages/Partners';
+import ContactPage from '@/pages/Contact';
 
 function App() {
-  useScrollReveal();
-
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <WhyJSB />
-        <ChoiceInnovate />
-        <Approach />
-        <Partners />
-        <CTA />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -79,16 +79,28 @@ export default function ChoiceInnovate() {
     }
 
     setStatus('submitting');
-    const { error } = await supabase.from('choice_leads').insert(payload);
 
-    if (error) {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-form-submission`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({ type: 'choice', data: payload }),
+        },
+      );
+
+      if (!response.ok) throw new Error('Request failed');
+
+      setStatus('success');
+      form.reset();
+      setTimeout(() => setStatus('idle'), 6000);
+    } catch {
       setStatus('error');
-      return;
     }
-
-    setStatus('success');
-    form.reset();
-    setTimeout(() => setStatus('idle'), 6000);
   };
 
   return (

@@ -13,50 +13,6 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="reveal">
-            <div className="relative">
-              <div className="absolute -inset-3 bg-gradient-to-br from-navy-100/50 to-gold-50/50 rounded-3xl blur-2xl" />
-              <div className="relative grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden border border-navy-200/60 shadow-lg">
-                    <img
-                      src="https://images.pexels.com/photos/1181358/pexels-photo-1181358.jpeg?auto=compress&cs=tinysrgb&w=600"
-                      alt="Professionals collaborating in a modern office"
-                      className="w-full h-64 object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden border border-navy-200/60 shadow-lg">
-                    <img
-                      src="https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&w=600"
-                      alt="Data analytics dashboard on a laptop"
-                      className="w-full h-44 object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4 pt-10">
-                  <div className="rounded-2xl overflow-hidden border border-navy-200/60 shadow-lg">
-                    <img
-                      src="https://images.pexels.com/photos/7433919/pexels-photo-7433919.jpeg?auto=compress&cs=tinysrgb&w=600"
-                      alt="Business meeting with professionals signing documents"
-                      className="w-full h-44 object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden border border-navy-200/60 shadow-lg">
-                    <img
-                      src="https://images.pexels.com/photos/36733313/pexels-photo-36733313.jpeg?auto=compress&cs=tinysrgb&w=600"
-                      alt="Professionals discussing charts during a business meeting"
-                      className="w-full h-64 object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="reveal">
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
               About JSB Firm
             </span>

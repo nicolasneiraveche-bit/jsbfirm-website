@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Mail, Linkedin, Video, Languages, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Linkedin, Video, Languages, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'office@jsbfirm.com', href: 'mailto:office@jsbfirm.com' },
@@ -8,14 +8,51 @@ const contactInfo = [
   { icon: Languages, label: 'Support', value: 'English & Spanish' },
 ];
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+export default function Contact() {
+  const [status, setStatus] = useState<FormStatus>('idle');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    (e.target as HTMLFormElement).reset();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: (formData.get('name') as string).trim(),
+      email: (formData.get('email') as string).trim(),
+      phone: (formData.get('phone') as string)?.trim() || null,
+      company: (formData.get('company') as string)?.trim() || null,
+      message: (formData.get('message') as string)?.trim() || null,
+    };
+
+    if (!payload.name || !payload.email) {
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-form-submission`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({ type: 'contact', data: payload }),
+        },
+      );
+
+      if (!response.ok) throw new Error('Request failed');
+
+      setStatus('success');
+      form.reset();
+      setTimeout(() => setStatus('idle'), 6000);
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -66,7 +103,7 @@ export default function Contact() {
 
           <div className="lg:col-span-7 reveal">
             <div className="rounded-3xl border border-navy-200/60 bg-white p-8 lg:p-10 shadow-sm">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center">
                   <div className="w-16 h-16 rounded-full bg-navy-50 border border-navy-200 flex items-center justify-center mb-5">
                     <CheckCircle2 className="w-8 h-8 text-gold" />
@@ -85,6 +122,7 @@ export default function Contact() {
                         Name
                       </label>
                       <input
+                        name="name"
                         required
                         type="text"
                         placeholder="John Smith"
@@ -96,6 +134,7 @@ export default function Contact() {
                         Company
                       </label>
                       <input
+                        name="company"
                         type="text"
                         placeholder="Your agency"
                         className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
@@ -108,6 +147,7 @@ export default function Contact() {
                         Email
                       </label>
                       <input
+                        name="email"
                         required
                         type="email"
                         placeholder="john@agency.com"
@@ -119,6 +159,7 @@ export default function Contact() {
                         Phone
                       </label>
                       <input
+                        name="phone"
                         type="tel"
                         placeholder="(555) 000-0000"
                         className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
@@ -130,18 +171,35 @@ export default function Contact() {
                       Message
                     </label>
                     <textarea
+                      name="message"
                       required
                       rows={5}
                       placeholder="Tell us about your agency and what you're looking to achieve..."
                       className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200 resize-none"
                     />
                   </div>
+                  {status === 'error' && (
+                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                      Something went wrong submitting your request. Please try again or
+                      email us directly at office@jsbfirm.com.
+                    </p>
+                  )}
                   <button
                     type="submit"
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-4 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20"
+                    disabled={status === 'submitting'}
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-4 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4 text-gold" />
-                    Send Message
+                    {status === 'submitting' ? (
+                      <>
+                        <Loader2 className="w-4 h-4 text-gold animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 text-gold" />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               )}

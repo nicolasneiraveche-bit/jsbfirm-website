@@ -1,18 +1,22 @@
+import { Link } from 'react-router-dom';
 import { Linkedin, Mail } from 'lucide-react';
 
 const footerLinks = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms', href: '#' },
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Partners', to: '/partners' },
+  { label: 'Contact', to: '/contact' },
 ];
+
+const choiceUrl = 'https://choiceinnovate.com/';
 
 export default function Footer() {
   return (
     <footer className="relative border-t border-navy-200/60 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2.5">
+          <Link to="/" className="flex items-center gap-2.5">
             <div className="relative">
               <img
                 src="/JSB_Firm_Logo.png"
@@ -27,18 +31,26 @@ export default function Footer() {
                 Insurance Solutions
               </span>
             </div>
-          </div>
+          </Link>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
             {footerLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="text-sm font-medium text-navy-500 hover:text-navy-900 transition-colors duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
+            <a
+              href={choiceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-navy-500 hover:text-navy-900 transition-colors duration-200"
+            >
+              CHOICE
+            </a>
           </nav>
 
           <div className="flex items-center gap-3">

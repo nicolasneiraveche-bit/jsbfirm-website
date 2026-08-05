@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Handshake, Building2, Network, Star } from 'lucide-react';
 
 const partners = [
@@ -39,13 +40,13 @@ export default function Partners() {
                     Whether you're a carrier, technology provider, or independent
                     agent, we'd love to explore how we can grow together.
                   </p>
-                  <a
-                    href="#contact"
+                  <Link
+                    to="/contact"
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-navy-900 hover:text-gold transition-colors"
                   >
                     Start the conversation
                     <span className="transition-transform hover:translate-x-1">→</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

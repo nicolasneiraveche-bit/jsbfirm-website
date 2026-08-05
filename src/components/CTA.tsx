@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Video, ArrowRight } from 'lucide-react';
 
 export default function CTA() {
@@ -26,20 +27,20 @@ export default function CTA() {
               how JSB Firm can help your agency scale.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-navy-900 hover:bg-gold hover:text-navy-900 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
               >
                 <Video className="w-4 h-4" />
                 Schedule a Zoom Meeting
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="#partners"
+              </Link>
+              <Link
+                to="/partners"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-medium text-white hover:bg-white/10 transition-all duration-300"
               >
                 Become a Partner
-              </a>
+              </Link>
             </div>
           </div>
         </div>
