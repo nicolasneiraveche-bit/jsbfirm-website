@@ -1,5 +1,7 @@
 import { Video, Handshake, ArrowRight } from 'lucide-react';
 
+const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
+
 export default function Hero() {
   return (
     <section
@@ -38,7 +40,9 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
-                href="#contact"
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/25 hover:-translate-y-0.5"
               >
                 <Video className="w-4 h-4 text-gold" />

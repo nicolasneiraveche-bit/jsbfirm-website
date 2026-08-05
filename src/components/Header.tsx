@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
 
+const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
+
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
@@ -95,13 +97,15 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/contact"
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20"
           >
             <Calendar className="w-4 h-4 text-gold" />
             Book a Meeting
-          </Link>
+          </a>
         </div>
 
         <button
@@ -143,14 +147,16 @@ export default function Header() {
           >
             CHOICE
           </a>
-          <Link
-            to="/contact"
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-3 text-sm font-medium text-white"
           >
             <Calendar className="w-4 h-4 text-gold" />
             Book a Meeting
-          </Link>
+          </a>
         </div>
       </div>
     </header>

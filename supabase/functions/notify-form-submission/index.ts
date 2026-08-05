@@ -39,6 +39,7 @@ Deno.serve(async (req: Request) => {
       phone: data.phone ?? null,
       company: data.company ?? null,
       message: data.message ?? null,
+      submitter_type: data.submitter_type ?? "agent",
     };
 
     const { error } = await supabase.from(table).insert(row);
@@ -50,15 +51,18 @@ Deno.serve(async (req: Request) => {
       );
     }
 
+    let emailResult: { ok: boolean; status: number; body: string } | null = null;
+
     if (RESEND_API_KEY) {
       const subject =
         type === "choice"
-          ? `New CHOICE Innovate lead from ${data.name}`
-          : `New contact form submission from ${data.name}`;
+          ? `New CHOICE Innovate lead from ${data.name} (${data.submitter_type ?? "agent"})`
+          : `New contact form submission from ${data.name} (${data.submitter_type ?? "agent"})`;
 
       const body = [
         `New ${type === "choice" ? "CHOICE Innovate" : "contact"} form submission:`,
         "",
+        `Type: ${(data.submitter_type ?? "agent").charAt(0).toUpperCase() + (data.submitter_type ?? "agent").slice(1)}`,
         `Name: ${data.name}`,
         `Email: ${data.email}`,
         data.phone ? `Phone: ${data.phone}` : null,
@@ -70,7 +74,7 @@ Deno.serve(async (req: Request) => {
         .filter(Boolean)
         .join("\n");
 
-      await fetch("https://api.resend.com/emails", {
+      const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${RESEND_API_KEY}`,
@@ -83,10 +87,15 @@ Deno.serve(async (req: Request) => {
           text: body,
         }),
       });
+
+      const resText = await res.text();
+      emailResult = { ok: res.ok, status: res.status, body: resText };
+    } else {
+      emailResult = { ok: false, status: 0, body: "RESEND_API_KEY not configured" };
     }
 
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ success: true, email: emailResult }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
   } catch (err) {

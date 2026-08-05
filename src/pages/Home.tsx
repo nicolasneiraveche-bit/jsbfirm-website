@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Video, ArrowRight, Handshake } from 'lucide-react';
 
+const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
+
 export default function Home() {
   return (
     <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
@@ -35,14 +37,16 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/25 hover:-translate-y-0.5"
               >
                 <Video className="w-4 h-4 text-gold" />
                 Schedule a Zoom Meeting
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              </a>
               <Link
                 to="/partners"
                 className="group inline-flex items-center justify-center gap-2 rounded-full border border-navy-200 bg-white/50 px-7 py-3.5 text-sm font-medium text-navy-800 hover:border-navy-300 hover:bg-white transition-all duration-300 hover:-translate-y-0.5"

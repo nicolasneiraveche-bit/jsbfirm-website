@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus, Briefcase, Sparkles, Award, Heart } from 'lucide-react';
+import { Plus, Minus, Briefcase, Sparkles, Award } from 'lucide-react';
 
 type Leader = {
   name: string;
@@ -10,7 +10,6 @@ type Leader = {
   background: string;
   currentRole: string;
   strengths: string[];
-  beyondOffice: string;
   accent: string;
 };
 
@@ -33,8 +32,6 @@ const leaders: Leader[] = [
       'Investor & partner trust',
       'Capital discipline',
     ],
-    beyondOffice:
-      'Javier spends his free time with family and friends, staying active, and following clean digital design and consumer psychology — the same interests that shape how he thinks about the business.',
     accent: 'from-navy-900 to-navy-700',
   },
   {
@@ -55,8 +52,6 @@ const leaders: Leader[] = [
       'Process discipline',
       'Quality & performance management',
     ],
-    beyondOffice:
-      'Benjamin enjoys connecting with people, supporting team development, and maintaining an active, balanced lifestyle. He values building strong relationships and continual learning.',
     accent: 'from-navy-800 to-navy-600',
   },
   {
@@ -77,15 +72,13 @@ const leaders: Leader[] = [
       'Data-driven optimization',
       'Systems thinking',
     ],
-    beyondOffice:
-      'Muhammad enjoys technology, continuous learning, and exploring the fast-moving tools shaping digital business. Outside work, he values time with family and friends.',
     accent: 'from-navy-900 to-navy-600',
   },
   {
     name: 'Nick Veche',
     initials: 'NV',
     photo: '/nick.png',
-    role: 'Chief Financial & Operations Officer',
+    role: 'Operations and Finance Director',
     tagline:
       'Billing and operations leader who pairs hands-on financial management with applied AI to make CHOICE\u2019s back office faster and more reliable.',
     background:
@@ -99,15 +92,13 @@ const leaders: Leader[] = [
       'Process discipline',
       'Cross-functional execution',
     ],
-    beyondOffice:
-      'Nick values continual learning, staying current with emerging AI tools, and applying that curiosity to make everyday operations simpler and more effective.',
     accent: 'from-navy-800 to-navy-700',
   },
   {
     name: 'Dave Asaad',
     initials: 'DA',
-    photo: '/dave.png',
-    role: 'Chief Revenue & Client Success Officer',
+    photo: '/WhatsApp_Image_2026-08-05_at_11.29.38.jpeg',
+    role: 'Sales Director',
     tagline:
       'Client-facing leader driving revenue growth and long-term customer relationships across CHOICE\u2019s book of business.',
     background:
@@ -121,8 +112,6 @@ const leaders: Leader[] = [
       'Team leadership',
       'Customer advocacy',
     ],
-    beyondOffice:
-      'Dave values building genuine relationships with clients and teammates alike, and stays focused on growth — both his own and the accounts he manages.',
     accent: 'from-navy-900 to-navy-800',
   },
 ];
@@ -236,18 +225,6 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                       </span>
                     ))}
                   </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Heart className="w-4 h-4 text-gold" />
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
-                      Beyond the Office
-                    </h4>
-                  </div>
-                  <p className="text-sm text-navy-500 leading-relaxed">
-                    {leader.beyondOffice}
-                  </p>
                 </div>
               </div>
             </div>

@@ -51,6 +51,30 @@ export default function About() {
               ))}
             </div>
           </div>
+
+          <div className="reveal flex flex-col items-center justify-center gap-10 lg:gap-14">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-br from-navy-100 to-gold/10 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 border border-navy-200/60 shadow-sm hover:shadow-xl transition-all duration-500">
+                <img
+                  src="/JSB_Firm_Logo.png"
+                  alt="JSB Firm logo"
+                  className="w-48 lg:w-64 h-auto object-contain"
+                />
+              </div>
+            </div>
+            <div className="hidden lg:block w-16 h-px bg-navy-200" />
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-br from-gold/10 to-navy-100 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 border border-navy-200/60 shadow-sm hover:shadow-xl transition-all duration-500">
+                <img
+                  src="/1.png"
+                  alt="CHOICE Innovate logo"
+                  className="w-48 lg:w-64 h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-20 reveal">

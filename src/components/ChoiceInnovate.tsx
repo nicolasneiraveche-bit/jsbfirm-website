@@ -11,8 +11,10 @@ import {
   Check,
   CheckCircle2,
   Loader2,
+  User,
+  Building2,
+  Video,
 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 
 const features = [
   {
@@ -57,9 +59,16 @@ const replacedTools = [
 ];
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type SubmitterType = 'agent' | 'agency';
+
+const tabs: { id: SubmitterType; label: string; icon: typeof User }[] = [
+  { id: 'agent', label: "I'm an Agent", icon: User },
+  { id: 'agency', label: "I'm an Agency", icon: Building2 },
+];
 
 export default function ChoiceInnovate() {
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [tab, setTab] = useState<SubmitterType>('agent');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,6 +80,7 @@ export default function ChoiceInnovate() {
       phone: (formData.get('phone') as string)?.trim() || null,
       company: (formData.get('company') as string)?.trim() || null,
       message: (formData.get('message') as string)?.trim() || null,
+      submitter_type: tab,
     };
 
     if (!payload.name || !payload.email) {
@@ -205,7 +215,9 @@ export default function ChoiceInnovate() {
                   </p>
                 </div>
                 <a
-                  href="#choice-demo"
+                  href="https://calendly.com/office-jsbfirm/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-medium text-navy-900 hover:bg-gold hover:text-white transition-all duration-300 flex-shrink-0"
                 >
                   Book a Meeting
@@ -226,6 +238,15 @@ export default function ChoiceInnovate() {
                     Thank you for your interest in CHOICE Innovate. A member of our
                     team will reach out within one business day to schedule a meeting.
                   </p>
+                  <a
+                    href="https://calendly.com/office-jsbfirm/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300"
+                  >
+                    <Video className="w-4 h-4 text-gold" />
+                    Book a Meeting Now
+                  </a>
                 </div>
               ) : (
                 <>
@@ -235,6 +256,28 @@ export default function ChoiceInnovate() {
                       Tell us a bit about yourself and our team will reach out to
                       schedule a personalized walkthrough of CHOICE Innovate.
                     </p>
+                  </div>
+
+                  {/* Tabs */}
+                  <div className="mb-6">
+                    <div className="flex gap-2 p-1.5 rounded-2xl bg-navy-50 border border-navy-200/60">
+                      {tabs.map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => setTab(t.id)}
+                          className={`flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
+                            tab === t.id
+                              ? 'bg-navy-900 text-white shadow-sm'
+                              : 'text-navy-500 hover:text-navy-700'
+                          }`
+                        }
+                        >
+                          <t.icon className="w-4 h-4" />
+                          {t.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -254,13 +297,14 @@ export default function ChoiceInnovate() {
                       </div>
                       <div>
                         <label htmlFor="ci-company" className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                          Company
+                          {tab === 'agent' ? 'Agency (optional)' : 'Agency Name'}
                         </label>
                         <input
                           id="ci-company"
                           name="company"
                           type="text"
-                          placeholder="Your agency"
+                          required={tab === 'agency'}
+                          placeholder={tab === 'agent' ? 'Your agency (if applicable)' : 'Your agency name'}
                           className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
                         />
                       </div>
@@ -300,7 +344,7 @@ export default function ChoiceInnovate() {
                         id="ci-message"
                         name="message"
                         rows={4}
-                        placeholder="Tell us about your agency and what you're looking to achieve..."
+                        placeholder={tab === 'agent' ? "Tell us about your goals and what you're looking to achieve..." : "Tell us about your agency, team size, and what you're looking to achieve..."}
                         className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200 resize-none"
                       />
                     </div>

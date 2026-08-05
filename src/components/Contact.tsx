@@ -1,17 +1,24 @@
 import { useState, type FormEvent } from 'react';
-import { Mail, Linkedin, Video, Languages, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, Linkedin, Video, Languages, Send, CheckCircle2, Loader2, User, Building2 } from 'lucide-react';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'office@jsbfirm.com', href: 'mailto:office@jsbfirm.com' },
   { icon: Linkedin, label: 'LinkedIn', value: 'Connect with us', href: '#' },
-  { icon: Video, label: 'Zoom Meetings', value: 'Available on request' },
+  { icon: Video, label: 'Zoom Meetings', value: 'Book a meeting', href: 'https://calendly.com/office-jsbfirm/30min' },
   { icon: Languages, label: 'Support', value: 'English & Spanish' },
 ];
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type SubmitterType = 'agent' | 'agency';
+
+const tabs: { id: SubmitterType; label: string; icon: typeof User }[] = [
+  { id: 'agent', label: "I'm an Agent", icon: User },
+  { id: 'agency', label: "I'm an Agency", icon: Building2 },
+];
 
 export default function Contact() {
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [tab, setTab] = useState<SubmitterType>('agent');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +30,7 @@ export default function Contact() {
       phone: (formData.get('phone') as string)?.trim() || null,
       company: (formData.get('company') as string)?.trim() || null,
       message: (formData.get('message') as string)?.trim() || null,
+      submitter_type: tab,
     };
 
     if (!payload.name || !payload.email) {
@@ -69,8 +77,8 @@ export default function Contact() {
               <span className="italic text-gold-gradient">conversation.</span>
             </h2>
             <p className="mt-5 text-navy-500 leading-relaxed text-lg">
-              Whether you're looking to scale your agency, explore a partnership,
-              or learn more about our solutions — we'd love to hear from you.
+              Whether you're an independent agent looking for the right tools or
+              an agency ready to scale — we'd love to hear from you.
             </p>
 
             <div className="mt-10 space-y-3">
@@ -113,95 +121,132 @@ export default function Contact() {
                     Thank you for reaching out. A member of our team will get back
                     to you within one business day.
                   </p>
+                  <a
+                    href="https://calendly.com/office-jsbfirm/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300"
+                  >
+                    <Video className="w-4 h-4 text-gold" />
+                    Book a Meeting Now
+                  </a>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-5">
+                <>
+                  {/* Tabs */}
+                  <div className="mb-8">
+                    <div className="flex gap-2 p-1.5 rounded-2xl bg-navy-50 border border-navy-200/60">
+                      {tabs.map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => setTab(t.id)}
+                          className={`flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
+                            tab === t.id
+                              ? 'bg-navy-900 text-white shadow-sm'
+                              : 'text-navy-500 hover:text-navy-700'
+                          }`}
+                        >
+                          <t.icon className="w-4 h-4" />
+                          {t.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
+                          Name
+                        </label>
+                        <input
+                          name="name"
+                          required
+                          type="text"
+                          placeholder="John Smith"
+                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
+                          {tab === 'agent' ? 'Agency (optional)' : 'Agency Name'}
+                        </label>
+                        <input
+                          name="company"
+                          type="text"
+                          required={tab === 'agency'}
+                          placeholder={tab === 'agent' ? 'Your agency (if applicable)' : 'Your agency name'}
+                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
+                          Email
+                        </label>
+                        <input
+                          name="email"
+                          required
+                          type="email"
+                          placeholder="john@agency.com"
+                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
+                          Phone
+                        </label>
+                        <input
+                          name="phone"
+                          type="tel"
+                          placeholder="(555) 000-0000"
+                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                    </div>
                     <div>
                       <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                        Name
+                        Message
                       </label>
-                      <input
-                        name="name"
+                      <textarea
+                        name="message"
                         required
-                        type="text"
-                        placeholder="John Smith"
-                        className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
+                        rows={5}
+                        placeholder={
+                          tab === 'agent'
+                            ? "Tell us about your goals and what you're looking to achieve..."
+                            : "Tell us about your agency, team size, and what you're looking to achieve..."
+                        }
+                        className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200 resize-none"
                       />
                     </div>
-                    <div>
-                      <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                        Company
-                      </label>
-                      <input
-                        name="company"
-                        type="text"
-                        placeholder="Your agency"
-                        className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                        Email
-                      </label>
-                      <input
-                        name="email"
-                        required
-                        type="email"
-                        placeholder="john@agency.com"
-                        className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                        Phone
-                      </label>
-                      <input
-                        name="phone"
-                        type="tel"
-                        placeholder="(555) 000-0000"
-                        className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      required
-                      rows={5}
-                      placeholder="Tell us about your agency and what you're looking to achieve..."
-                      className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200 resize-none"
-                    />
-                  </div>
-                  {status === 'error' && (
-                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-                      Something went wrong submitting your request. Please try again or
-                      email us directly at office@jsbfirm.com.
-                    </p>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="group w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-4 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20 disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <Loader2 className="w-4 h-4 text-gold animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 text-gold" />
-                        Send Message
-                      </>
+                    {status === 'error' && (
+                      <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                        Something went wrong submitting your request. Please try again or
+                        email us directly at office@jsbfirm.com.
+                      </p>
                     )}
-                  </button>
-                </form>
+                    <button
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="group w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-4 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {status === 'submitting' ? (
+                        <>
+                          <Loader2 className="w-4 h-4 text-gold animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 text-gold" />
+                          Send Message
+                        </>
+                      )}
+                    </button>
+                  </form>
+                </>
               )}
             </div>
           </div>
