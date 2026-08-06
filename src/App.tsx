@@ -2,9 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import Home from '@/pages/Home';
 import AboutPage from '@/pages/About';
-import ServicesPage from '@/pages/Services';
+import ForAgents from '@/pages/ForAgents';
+import ForAgencies from '@/pages/ForAgencies';
 import PartnersPage from '@/pages/Partners';
 import ContactPage from '@/pages/Contact';
+import ChoiceInnovate from '@/components/ChoiceInnovate';
 
 function App() {
   return (
@@ -13,9 +15,11 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/agents" element={<ForAgents />} />
+          <Route path="/agencies" element={<ForAgencies />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/choice" element={<ChoiceInnovate />} />
         </Route>
       </Routes>
     </BrowserRouter>

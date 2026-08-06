@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus, Briefcase, Sparkles, Award } from 'lucide-react';
+import { Plus, Minus, Briefcase, Sparkles, Award, Compass } from 'lucide-react';
 
 type Leader = {
   name: string;
@@ -10,6 +10,7 @@ type Leader = {
   background: string;
   currentRole: string;
   strengths: string[];
+  beyondOffice: string;
   accent: string;
 };
 
@@ -20,11 +21,11 @@ const leaders: Leader[] = [
     photo: '/javier.png',
     role: 'Chief Executive Officer',
     tagline:
-      'Entrepreneurial operator bringing a product-led perspective to insurance and building CHOICE around a clearer, more customer-centered future.',
+      'Entrepreneurial operator bringing a product-led perspective to insurance and building JSB Firm around a clearer, more customer-centered future.',
     background:
-      "Javier's path to CEO was entrepreneurial rather than technical first. He built and successfully ran a marketing technology company, where hands-on work with front-end systems and digital infrastructure taught him to identify structural gaps most executives never see. He did not write production code; he learned the stack well enough to recognize what is possible, what is broken, and what is worth building. That instinct led him to insurance: a legacy industry still organized around transactions while customers increasingly expect products. Javier brought key players together around a shared vision and named the resulting company CHOICE, a direct expression of the philosophy behind it.",
+      "Javier's path to CEO was entrepreneurial rather than technical first. He built and successfully ran a marketing technology company, where hands-on work with front-end systems and digital infrastructure taught him to identify structural gaps most executives never see. That instinct led him to insurance: a legacy industry still organized around transactions while customers increasingly expect products. Javier brought key players together to found JSB Firm and lead its flagship platform, CHOICE.",
     currentRole:
-      'As CEO, Javier sets strategies the company can execute against, allocates capital with discipline, builds and retains the right team, and maintains credibility with the people who decide whether to fund, partner with, or join the company. He represents CHOICE in its most important partnerships and ensures technical complexity becomes a product customers can trust and a team can deliver. He is accountable when either side fails.',
+      'As CEO of JSB Firm, Javier sets strategies the company can execute against, allocates capital with discipline, builds and retains the right team, and maintains credibility with the people who decide whether to fund, partner with, or join the company.',
     strengths: [
       'Strategic vision',
       'Talent recruitment & team building',
@@ -32,6 +33,8 @@ const leaders: Leader[] = [
       'Investor & partner trust',
       'Capital discipline',
     ],
+    beyondOffice:
+      'Javier spends his free time with family and friends, staying active, and following clean digital design and consumer psychology.',
     accent: 'from-navy-900 to-navy-700',
   },
   {
@@ -44,14 +47,16 @@ const leaders: Leader[] = [
     background:
       "Benjamin has built his career in insurance operations as the CEO of an insurance agency with more than 100 licensed agents. That experience has given him a practical understanding of regulated sales environments, agent enablement, quality standards, and the operating discipline required to support a distributed team at scale.",
     currentRole:
-      "As Chief Operating Officer of CHOICE Company, Benjamin owns the operational engine behind the company's strategy. His mandate includes establishing scalable workflows, strengthening service delivery, coordinating cross-functional execution, and using performance management to help the business deliver consistently for clients and partners.",
+      "As Chief Operating Officer of JSB Firm, Benjamin owns the operational engine behind the company's strategy, establishing scalable workflows and coordinating cross-functional execution across the business.",
     strengths: [
       'Operational scale',
       'Insurance-domain perspective',
       'Agent enablement',
       'Process discipline',
-      'Quality & performance management',
+      'Quality and performance management',
     ],
+    beyondOffice:
+      'Benjamin enjoys connecting with people, supporting team development, and maintaining an active, balanced lifestyle.',
     accent: 'from-navy-800 to-navy-600',
   },
   {
@@ -64,27 +69,29 @@ const leaders: Leader[] = [
     background:
       'Muhammad has spent the last six years leading a lead-generation agency as CEO/CTO, specializing in PPC and Meta advertising for larger agencies in the insurance field. His work sits at the intersection of paid-media execution, technical systems, and data-informed optimization.',
     currentRole:
-      'As Chief Technology Officer of CHOICE Company, Muhammad leads the technology and performance-marketing roadmap. He turns data, platforms, automation, and testing discipline into dependable capabilities that support lead quality, operational visibility, and scalable growth.',
+      "As Chief Technology Officer of JSB Firm, Muhammad leads the technology and performance-marketing roadmap across the company's products, turning data and automation into dependable capabilities that support growth.",
     strengths: [
-      'PPC & Meta ads',
+      'PPC and Meta ads',
       'Insurance lead generation',
       'Marketing technology',
       'Data-driven optimization',
       'Systems thinking',
     ],
+    beyondOffice:
+      'Muhammad enjoys technology, continuous learning, and exploring the fast-moving tools shaping digital business.',
     accent: 'from-navy-900 to-navy-600',
   },
   {
     name: 'Nick Veche',
     initials: 'NV',
     photo: '/nick.png',
-    role: 'Operations and Finance Director',
+    role: 'Chief Financial & Operations Officer',
     tagline:
-      'Billing and operations leader who pairs hands-on financial management with applied AI to make CHOICE\u2019s back office faster and more reliable.',
+      "Billing and operations leader who pairs hands-on financial management with applied AI to make JSB Firm's back office faster and more reliable.",
     background:
-      'Nick built his career managing the operational and financial backbone of client-facing organizations, serving as Billing Manager and Operations Manager. That path gave him direct, practical fluency in revenue cycle management, process design, and the day-to-day discipline required to keep a growing operation running cleanly. Alongside that operational foundation, Nick has developed strong applied experience with AI tools and workflows, using them to streamline billing accuracy, reporting, and operational processes — bringing a modern, technology-enabled approach to traditionally manual functions.',
+      'Nick built his career managing the operational and financial backbone of client-facing organizations, serving as Billing Manager and Operations Manager. Alongside that foundation, he has developed strong applied experience with AI tools and workflows, streamlining billing accuracy, reporting, and operational processes.',
     currentRole:
-      'As Chief Financial & Operations Officer of CHOICE Company, Nick owns billing integrity, operational workflows, and the systems that connect finance to day-to-day execution. He applies AI-driven tools to improve accuracy, efficiency, and visibility across billing and operations, helping the business scale without sacrificing control.',
+      'As Chief Financial & Operations Officer of JSB Firm, Nick owns billing integrity, operational workflows, and the systems that connect finance to day-to-day execution across the company.',
     strengths: [
       'Billing & revenue operations',
       'Operations management',
@@ -92,19 +99,21 @@ const leaders: Leader[] = [
       'Process discipline',
       'Cross-functional execution',
     ],
+    beyondOffice:
+      'Nick values continual learning, staying current with emerging AI tools, and applying that curiosity to make everyday operations simpler.',
     accent: 'from-navy-800 to-navy-700',
   },
   {
     name: 'Dave Asaad',
     initials: 'DA',
     photo: '/WhatsApp_Image_2026-08-05_at_11.29.38.jpeg',
-    role: 'Sales Director',
+    role: 'Sales Manager',
     tagline:
-      'Client-facing leader driving revenue growth and long-term customer relationships across CHOICE\u2019s book of business.',
+      "Client-facing leader driving revenue growth and long-term customer relationships across JSB Firm's book of business.",
     background:
-      'Dave has built his career at the intersection of sales and client success, working directly with clients to drive adoption, retention, and growth while managing sales pipelines and performance. That dual perspective has given him a practical understanding of what it takes to win a client and what it takes to keep one.',
+      'Dave has built his career at the intersection of sales and client success, working directly with clients to drive adoption, retention, and growth while managing sales pipelines and performance.',
     currentRole:
-      'As Chief Revenue & Client Success Officer of CHOICE Company, Dave owns the client lifecycle from acquisition through long-term retention, aligning sales strategy with the service standards that keep clients loyal. He works closely with the executive team to make sure revenue growth and client experience move together rather than in tension.',
+      "As Sales Manager at JSB Firm, Dave owns the client lifecycle from acquisition through long-term retention, aligning sales strategy with the service standards that keep clients loyal.",
     strengths: [
       'Client relationship management',
       'Sales strategy & execution',
@@ -112,6 +121,8 @@ const leaders: Leader[] = [
       'Team leadership',
       'Customer advocacy',
     ],
+    beyondOffice:
+      'Dave values building genuine relationships with clients and teammates alike, and stays focused on growth.',
     accent: 'from-navy-900 to-navy-800',
   },
 ];
@@ -200,7 +211,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                   <div className="flex items-center gap-2 mb-3">
                     <Sparkles className="w-4 h-4 text-gold" />
                     <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
-                      Current Role at CHOICE
+                      Current Role
                     </h4>
                   </div>
                   <p className="text-sm text-navy-500 leading-relaxed">
@@ -225,6 +236,18 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                       </span>
                     ))}
                   </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Compass className="w-4 h-4 text-gold" />
+                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
+                      Beyond the Office
+                    </h4>
+                  </div>
+                  <p className="text-sm text-navy-500 leading-relaxed">
+                    {leader.beyondOffice}
+                  </p>
                 </div>
               </div>
             </div>
@@ -254,13 +277,13 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
 
 export default function Leadership() {
   return (
-    <section id="leadership" className="relative py-28 lg:py-36 bg-navy-50/40">
+    <section id="leadership" className="relative py-16 lg:py-20 bg-navy-50/40">
       <div className="absolute inset-0 dot-pattern opacity-40" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section header */}
         <div className="max-w-3xl mx-auto text-center reveal">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-            CHOICE Company Leadership
+            Our Team
           </span>
           <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
             Leadership built for growth,{' '}
@@ -285,14 +308,14 @@ export default function Leadership() {
         </div>
 
         {/* Leader cards */}
-        <div className="mt-20 grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="mt-12 grid lg:grid-cols-2 gap-8 lg:gap-12">
           {leaders.map((leader, i) => (
             <LeaderCard key={leader.name} leader={leader} index={i} />
           ))}
         </div>
 
         {/* Confidential footer */}
-        <p className="mt-20 text-center text-xs font-medium text-navy-400 uppercase tracking-[0.2em] reveal">
+        <p className="mt-12 text-center text-xs font-medium text-navy-400 uppercase tracking-[0.2em] reveal">
           Confidential &middot; 2026
         </p>
       </div>

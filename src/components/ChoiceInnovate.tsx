@@ -1,381 +1,246 @@
-import { useState, type FormEvent } from 'react';
 import {
-  Bot,
   Users,
+  PhoneCall,
+  FileText,
+  Receipt,
+  RefreshCw,
   ShieldCheck,
-  DollarSign,
-  LayoutDashboard,
-  Layers,
-  ArrowRight,
+  BarChart3,
+  Network,
   Sparkles,
-  Check,
-  CheckCircle2,
-  Loader2,
-  User,
-  Building2,
+  ArrowRight,
   Video,
+  ExternalLink,
+  Check,
 } from 'lucide-react';
+
+const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
+const CHOICE_URL = 'https://choiceinnovate.com/';
+
+const badges = [
+  'Compliant Lead Marketplace',
+  'Enterprise Dialer',
+  'Live Commission Tracking',
+  'Automated Retention',
+];
 
 const features = [
   {
-    icon: Bot,
-    title: 'AI-Powered Sales Automation',
-    desc: 'Automated follow-ups, smart lead scoring, and AI-driven insights that help agents close more without the manual work.',
+    icon: Users,
+    title: 'Compliant Lead Marketplace',
+    desc: 'High-intent leads, scored and routed to the right agent.',
   },
   {
-    icon: Users,
-    title: 'Client & Lead Management',
-    desc: 'A unified pipeline for every contact, lead, and client — with full history, notes, and lifecycle tracking in one place.',
+    icon: PhoneCall,
+    title: 'Enterprise Dialer',
+    desc: 'Power dialing, local presence, and call transcription, built in.',
+  },
+  {
+    icon: FileText,
+    title: 'Submissions',
+    desc: 'Plan comparisons and carrier submissions without leaving the platform.',
+  },
+  {
+    icon: Receipt,
+    title: 'Live Commission Tracking',
+    desc: 'Real-time payouts, reconciled automatically against carrier statements.',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Automated Retention',
+    desc: 'AI flags at-risk policies and drafts outreach before a client walks.',
   },
   {
     icon: ShieldCheck,
-    title: 'Enrollment & Compliance Tools',
-    desc: 'Built-in enrollment workflows and compliance guardrails keep every submission accurate and audit-ready.',
+    title: 'Built-In Compliance',
+    desc: 'A2P 10DLC, TCPA, and state-by-state rules handled in the background.',
   },
   {
-    icon: DollarSign,
-    title: 'Commission Tracking',
-    desc: "Real-time commission visibility across carriers and products, so agents always know what they earn and what's pending.",
+    icon: BarChart3,
+    title: 'Real-Time Reporting',
+    desc: 'Every agent, every agency, one screen.',
   },
   {
-    icon: LayoutDashboard,
-    title: 'Team Management Dashboard',
-    desc: 'Performance metrics, activity tracking, and reporting that give sales leaders a clear view of the whole team.',
+    icon: Network,
+    title: 'Hierarchy & Recruiting Tools',
+    desc: 'Manage downlines and growth without spreadsheets.',
   },
-  {
-    icon: Layers,
-    title: 'All-in-One Platform',
-    desc: 'Replaces 6+ separate tools — CRM, dialer, enrollment, commissions, compliance, and reporting — at a fraction of the cost.',
-  },
-];
-
-const replacedTools = [
-  'CRM',
-  'Dialer',
-  'Enrollment software',
-  'Commission tracker',
-  'Compliance tools',
-  'Reporting dashboard',
-];
-
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-type SubmitterType = 'agent' | 'agency';
-
-const tabs: { id: SubmitterType; label: string; icon: typeof User }[] = [
-  { id: 'agent', label: "I'm an Agent", icon: User },
-  { id: 'agency', label: "I'm an Agency", icon: Building2 },
 ];
 
 export default function ChoiceInnovate() {
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [tab, setTab] = useState<SubmitterType>('agent');
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const payload = {
-      name: (formData.get('name') as string).trim(),
-      email: (formData.get('email') as string).trim(),
-      phone: (formData.get('phone') as string)?.trim() || null,
-      company: (formData.get('company') as string)?.trim() || null,
-      message: (formData.get('message') as string)?.trim() || null,
-      submitter_type: tab,
-    };
-
-    if (!payload.name || !payload.email) {
-      setStatus('error');
-      return;
-    }
-
-    setStatus('submitting');
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-form-submission`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          },
-          body: JSON.stringify({ type: 'choice', data: payload }),
-        },
-      );
-
-      if (!response.ok) throw new Error('Request failed');
-
-      setStatus('success');
-      form.reset();
-      setTimeout(() => setStatus('idle'), 6000);
-    } catch {
-      setStatus('error');
-    }
-  };
-
   return (
-    <section id="choice" className="relative py-28 lg:py-36 overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-[45%] h-[60%] bg-gradient-to-br from-navy-50 to-transparent rounded-br-[200px]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
-        <div className="absolute inset-0 grid-pattern opacity-40" />
-      </div>
+    <section id="choice" className="relative overflow-hidden">
+      {/* Hero */}
+      <div className="relative pt-28 pb-12 lg:pt-32 lg:pb-16">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 grid-pattern opacity-50" />
+          <div className="absolute top-0 right-0 w-[55%] h-[70%] bg-gradient-to-bl from-navy-100/80 via-gold-50/40 to-transparent rounded-bl-[200px]" />
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-gold-100/40 rounded-full blur-3xl animate-shimmer" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-navy-100/50 rounded-full blur-3xl" />
+        </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          <div className="lg:col-span-5 lg:sticky lg:top-28 reveal">
-            <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-gold" />
-              A JSB Firm Product
-            </div>
-
-            <div className="mb-6">
-              <img
-                src="/1.png"
-                alt="CHOICE Innovate logo"
-                className="h-20 w-auto mb-4"
-              />
-              <p className="text-sm text-navy-400 font-medium uppercase tracking-wider">
-                CRM Platform
-              </p>
-            </div>
-
-            <p className="mt-3 text-lg text-navy-500 leading-relaxed">
-              CHOICE Innovate is the next-generation CRM platform built for
-              insurance agents. Manage clients, automate sales, track commissions,
-              and scale your business — all from one login.
-            </p>
-
-            <div className="mt-8 rounded-2xl border border-navy-200/60 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-navy-900 flex items-center justify-center">
-                  <Layers className="w-6 h-6 text-gold" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy-900">One platform. Six fewer tools.</h3>
-                  <p className="text-sm text-navy-500 mt-0.5">Everything an agent needs, nothing they don't.</p>
-                </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-5">
+                <Sparkles className="w-3.5 h-3.5 text-gold" />
+                A JSB Firm Product
               </div>
-              <div className="flex flex-wrap gap-2">
-                {replacedTools.map((tool) => (
+
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
+                What is CHOICE?{' '}
+                <span className="italic text-gold-gradient">One login. Every tool.</span>
+              </h1>
+
+              <p className="mt-5 text-lg text-navy-500 leading-relaxed max-w-2xl">
+                CHOICE is the all-in-one platform built for insurance agents who are
+                done juggling five tools to do one job. Instead of paying for a
+                separate lead vendor, a third-party dialer, a carrier portal,
+                commission spreadsheets, and a retention strategy, CHOICE brings it
+                all into one login.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {badges.map((badge) => (
                   <span
-                    key={tool}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-navy-50 border border-navy-200/60 px-3 py-1.5 text-xs font-medium text-navy-500 line-through decoration-gold/60"
+                    key={badge}
+                    className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/70 px-4 py-2 text-sm font-medium text-navy-700"
                   >
-                    {tool}
+                    <Check className="w-4 h-4 text-gold" />
+                    {badge}
                   </span>
                 ))}
               </div>
-              <div className="mt-4 flex items-center gap-2 text-sm font-medium text-navy-900">
-                <Check className="w-4 h-4 text-gold" />
-                Replaced by one CHOICE Innovate login
-              </div>
             </div>
 
-            <a
-              href="#choice-demo"
-              className="group inline-flex items-center gap-2 rounded-full bg-navy-900 px-6 py-3.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20"
-            >
-              I Want More Info
-              <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-0.5" />
-            </a>
+            <div className="flex-shrink-0 flex justify-center lg:justify-end">
+              <img
+                src="/1.png"
+                alt="CHOICE Innovate logo"
+                className="h-32 sm:h-40 lg:h-48 w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* What CHOICE Provides */}
+      <div className="relative py-14 lg:py-20 bg-navy-50/40">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-4xl lg:text-5xl text-navy-900 tracking-tight">
+              What CHOICE Provides
+            </h2>
+            <p className="mt-3 text-lg text-navy-500 max-w-2xl mx-auto leading-relaxed">
+              Everything agents, agency owners, and organizations need to run
+              the full insurance workflow — without stitching together six
+              different tools.
+            </p>
           </div>
 
-          <div className="lg:col-span-7">
-            <div className="grid sm:grid-cols-2 gap-5">
-              {features.map((feature, i) => (
-                <div
-                  key={feature.title}
-                  className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
-                  style={{ transitionDelay: `${i * 50}ms` }}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
-                    <feature.icon className="w-5.5 h-5.5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
-                  </div>
-                  <h3 className="font-semibold text-navy-900 text-base">{feature.title}</h3>
-                  <p className="mt-2 text-sm text-navy-500 leading-relaxed">
-                    {feature.desc}
-                  </p>
-                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {features.map((feature, i) => (
+              <div
+                key={feature.title}
+                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+                  <feature.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
                 </div>
-              ))}
+                <h3 className="font-semibold text-navy-900 text-base">{feature.title}</h3>
+                <p className="mt-2 text-sm text-navy-500 leading-relaxed">
+                  {feature.desc}
+                </p>
+                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="font-display text-2xl lg:text-3xl text-navy-900 italic max-w-3xl mx-auto leading-snug">
+              "One platform. Every level — independent agents, agency owners, and
+              organizations."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Powered by AI */}
+      <div className="relative py-14 lg:py-20">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
+        </div>
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+                Powered by AI
+              </span>
+              <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight">
+                AI that works quietly in the background.
+              </h2>
             </div>
 
-            <div className="reveal mt-5 rounded-2xl bg-navy-900 p-7 lg:p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
-              <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-                <div>
-                  <h3 className="font-display text-2xl text-white">
-                    Built for agents, not investors.
-                  </h3>
-                  <p className="mt-2 text-sm text-navy-300 max-w-md leading-relaxed">
-                    Every feature exists because an agent needs it — not because it
-                    looks good on a pitch deck. That's why CHOICE Innovate costs
-                    a fraction of what you're paying for six separate tools today.
-                  </p>
-                </div>
+            <div className="space-y-5 text-lg text-navy-500 leading-relaxed">
+              <p>
+                CHOICE surfaces the right lead, automates the repetitive follow-ups,
+                and stays out of your way so you can focus on what actually grows
+                your business: your clients.
+              </p>
+              <p className="text-navy-700 font-medium">
+                Built by agents, for agents. We've lived the frustration of
+                losing clients between platforms and watching great producers
+                burn out without the right tools. CHOICE is what we built because
+                nothing else out there was worthy of the effort agents put in
+                every day.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="relative py-14 lg:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="relative rounded-3xl bg-navy-900 overflow-hidden">
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 grid-pattern opacity-20" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
+            </div>
+
+            <div className="relative px-8 py-16 lg:px-16 lg:py-20 text-center">
+              <h2 className="font-display text-4xl lg:text-5xl text-white tracking-tight">
+                Ready to Learn More?
+              </h2>
+              <p className="mt-5 text-lg text-navy-300 leading-relaxed max-w-2xl mx-auto">
+                Book a private call with our team to walk through CHOICE — leads,
+                dialer, submissions, commissions, and growth.
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://calendly.com/office-jsbfirm/30min"
+                  href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-medium text-navy-900 hover:bg-gold hover:text-white transition-all duration-300 flex-shrink-0"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-navy-900 hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
                 >
-                  Book a Meeting
+                  <Video className="w-4 h-4" />
+                  Schedule a Zoom Meeting
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
+                <a
+                  href={CHOICE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-medium text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  <ExternalLink className="w-4 h-4 text-gold" />
+                  Visit CHOICE Innovate
+                </a>
               </div>
-            </div>
-
-            {/* Lead capture form */}
-            <div id="choice-demo" className="reveal mt-5 rounded-2xl border border-navy-200/60 bg-white p-8 lg:p-10 shadow-sm scroll-mt-28">
-              {status === 'success' ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <div className="w-16 h-16 rounded-full bg-navy-50 border border-navy-200 flex items-center justify-center mb-5">
-                    <CheckCircle2 className="w-8 h-8 text-gold" />
-                  </div>
-                  <h3 className="font-display text-2xl text-navy-900">Request received</h3>
-                  <p className="mt-2 text-navy-500 text-sm max-w-sm">
-                    Thank you for your interest in CHOICE Innovate. A member of our
-                    team will reach out within one business day to schedule a meeting.
-                  </p>
-                  <a
-                    href="https://calendly.com/office-jsbfirm/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300"
-                  >
-                    <Video className="w-4 h-4 text-gold" />
-                    Book a Meeting Now
-                  </a>
-                </div>
-              ) : (
-                <>
-                  <div className="mb-6">
-                    <h3 className="font-display text-2xl text-navy-900">Book a Meeting</h3>
-                    <p className="mt-2 text-sm text-navy-500 leading-relaxed">
-                      Tell us a bit about yourself and our team will reach out to
-                      schedule a personalized walkthrough of CHOICE Innovate.
-                    </p>
-                  </div>
-
-                  {/* Tabs */}
-                  <div className="mb-6">
-                    <div className="flex gap-2 p-1.5 rounded-2xl bg-navy-50 border border-navy-200/60">
-                      {tabs.map((t) => (
-                        <button
-                          key={t.id}
-                          type="button"
-                          onClick={() => setTab(t.id)}
-                          className={`flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
-                            tab === t.id
-                              ? 'bg-navy-900 text-white shadow-sm'
-                              : 'text-navy-500 hover:text-navy-700'
-                          }`
-                        }
-                        >
-                          <t.icon className="w-4 h-4" />
-                          {t.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="ci-name" className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                          Name
-                        </label>
-                        <input
-                          id="ci-name"
-                          name="name"
-                          required
-                          type="text"
-                          placeholder="John Smith"
-                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="ci-company" className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                          {tab === 'agent' ? 'Agency (optional)' : 'Agency Name'}
-                        </label>
-                        <input
-                          id="ci-company"
-                          name="company"
-                          type="text"
-                          required={tab === 'agency'}
-                          placeholder={tab === 'agent' ? 'Your agency (if applicable)' : 'Your agency name'}
-                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="ci-email" className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                          Email
-                        </label>
-                        <input
-                          id="ci-email"
-                          name="email"
-                          required
-                          type="email"
-                          placeholder="john@agency.com"
-                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="ci-phone" className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                          Phone
-                        </label>
-                        <input
-                          id="ci-phone"
-                          name="phone"
-                          type="tel"
-                          placeholder="(555) 000-0000"
-                          className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="ci-message" className="block text-xs font-medium text-navy-600 uppercase tracking-wider mb-2">
-                        Message <span className="text-navy-400 normal-case tracking-normal">(optional)</span>
-                      </label>
-                      <textarea
-                        id="ci-message"
-                        name="message"
-                        rows={4}
-                        placeholder={tab === 'agent' ? "Tell us about your goals and what you're looking to achieve..." : "Tell us about your agency, team size, and what you're looking to achieve..."}
-                        className="w-full rounded-xl border border-navy-200 bg-navy-50/40 px-4 py-3 text-sm text-navy-900 placeholder:text-navy-400 focus:outline-none focus:border-gold focus:bg-white transition-all duration-200 resize-none"
-                      />
-                    </div>
-
-                    {status === 'error' && (
-                      <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-                        Something went wrong submitting your request. Please try again or
-                        email us directly at office@jsbfirm.com.
-                      </p>
-                    )}
-
-                    <button
-                      type="submit"
-                      disabled={status === 'submitting'}
-                      className="group w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-4 text-sm font-medium text-white hover:bg-navy-800 transition-all duration-300 hover:shadow-lg hover:shadow-navy-900/20 disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      {status === 'submitting' ? (
-                        <>
-                          <Loader2 className="w-4 h-4 text-gold animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Book a Meeting
-                          <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-0.5" />
-                        </>
-                      )}
-                    </button>
-                  </form>
-                </>
-              )}
             </div>
           </div>
         </div>
