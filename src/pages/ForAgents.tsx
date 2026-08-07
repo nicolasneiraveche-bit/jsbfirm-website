@@ -39,7 +39,7 @@ const benefits = [
   {
     icon: ShieldCheck,
     title: 'Compliance that has your back.',
-    desc: "CMS and state requirements handled at the organizational level, so you're supported — not left exposed and figuring it out alone.",
+    desc: "CMS and state requirements handled at the organizational level, so you're supported, not left exposed and figuring it out alone.",
   },
   {
     icon: Receipt,
@@ -54,7 +54,7 @@ const benefits = [
   {
     icon: TrendingUp,
     title: 'Room to grow, not just a contract.',
-    desc: "We don't want you to plateau. As you produce, we invest more into you — more leads, more support, more opportunity to build out a team of your own if that's where you want to go.",
+    desc: "We don't want you to plateau. As you produce, we invest more into you: more leads, more support, more opportunity to build out a team of your own if that's where you want to go.",
   },
 ];
 
@@ -112,7 +112,7 @@ export default function ForAgents() {
             </div>
             <div className="lg:col-span-8 space-y-4 text-lg text-navy-500 leading-relaxed">
               <p>
-                You do the work that matters — the calls, the relationships, the
+                You do the work that matters: the calls, the relationships, the
                 follow-through. We handle what makes that possible: leads in your
                 pipeline, the upfront cost of getting started, contracts with the
                 carriers you need, and a compliance system that keeps your license
@@ -120,7 +120,7 @@ export default function ForAgents() {
               </p>
               <p className="text-navy-700 font-medium">
                 Your book of business is yours. We're not here to take a piece of
-                what you build — we're here to make sure you can build it in the
+                what you build, we're here to make sure you can build it in the
                 first place.
               </p>
             </div>

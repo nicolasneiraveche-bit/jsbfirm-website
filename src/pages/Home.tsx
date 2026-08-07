@@ -55,17 +55,6 @@ export default function Home() {
                 Become a Partner
               </Link>
             </div>
-
-            <div className="mt-14 flex flex-wrap items-center gap-8">
-              {['Medicare', 'ACA', 'AI Automation', 'Agency Growth'].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-gold" />
-                  <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="lg:col-span-5 relative">

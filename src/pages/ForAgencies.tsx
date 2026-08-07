@@ -23,7 +23,7 @@ const benefits = [
   {
     icon: Network,
     title: 'Hierarchy and downline visibility.',
-    desc: "Know what's happening across your whole team, in real time — not at month-end.",
+    desc: "Know what's happening across your whole team, in real time, not at month-end.",
   },
   {
     icon: ShieldCheck,
@@ -43,12 +43,12 @@ const benefits = [
   {
     icon: LayoutDashboard,
     title: 'CHOICE, built for organizations like yours.',
-    desc: "Multi-agent dashboards, live oversight, and reporting — all in the platform we're building right now.",
+    desc: "Multi-agent dashboards, live oversight, and reporting, all in the platform we're building right now.",
   },
   {
     icon: TrendingUp,
     title: 'Growth support, not just maintenance support.',
-    desc: "We don't just help you keep the lights on — we help you actively grow. More recruiting support as you scale, more lead volume as your team expands, more infrastructure exactly when you need it, not after you've already outgrown what you had.",
+    desc: "We don't just help you keep the lights on, we help you actively grow. More recruiting support as you scale, more lead volume as your team expands, more infrastructure exactly when you need it, not after you've already outgrown what you had.",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function ForAgencies() {
             </div>
             <div className="lg:col-span-8 space-y-4 text-lg text-navy-500 leading-relaxed">
               <p>
-                Running an agency means carrying weight most people never see —
+                Running an agency means carrying weight most people never see:
                 recruiting, training, compliance oversight, making sure every agent
                 under you is protected and producing. JSB gives you the
                 infrastructure to carry that weight without it crushing you.
@@ -128,7 +128,7 @@ export default function ForAgencies() {
               What You Get
             </span>
             <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight">
-              The backbone for your agency — and everyone underneath it.
+              The backbone for your agency, and everyone underneath it.
             </h2>
           </div>
 
@@ -157,17 +157,27 @@ export default function ForAgencies() {
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
         </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-3xl">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-              The Feeling
-            </span>
-            <p className="mt-4 font-display text-3xl lg:text-4xl text-navy-900 italic leading-snug text-balance">
-              Running an agency shouldn't mean you're the last line of defense
-              for everything, and it shouldn't mean growth stalls out because
-              you're stretched too thin. With JSB behind you, you're not building
-              alone, and neither is anyone on your team — and we want you to be
-              the agency other agencies measure themselves against.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+                The Feeling
+              </span>
+              <p className="mt-4 text-lg text-navy-500 leading-relaxed">
+                Running an agency shouldn't mean you're the last line of defense
+                for everything, and it shouldn't mean growth stalls out because
+                you're stretched too thin. With JSB behind you, you're not building
+                alone, and neither is anyone on your team, and we want you to be
+                the agency other agencies measure themselves against.
+              </p>
+            </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 group">
+              <img
+                src="https://images.pexels.com/photos/8353839/pexels-photo-8353839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                alt="Business team celebrating teamwork and collaboration"
+                className="w-full h-[300px] lg:h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/20 to-transparent" />
+            </div>
           </div>
         </div>
       </div>

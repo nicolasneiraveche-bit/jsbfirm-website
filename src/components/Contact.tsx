@@ -1,9 +1,8 @@
 import { useState, type FormEvent } from 'react';
-import { Mail, Linkedin, Video, Languages, Send, CheckCircle2, Loader2, User, Building2 } from 'lucide-react';
+import { Mail, Video, Languages, Send, CheckCircle2, Loader2, User, Building2 } from 'lucide-react';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'office@jsbfirm.com', href: 'mailto:office@jsbfirm.com' },
-  { icon: Linkedin, label: 'LinkedIn', value: 'Connect with us', href: '#' },
   { icon: Video, label: 'Zoom Meetings', value: 'Book a meeting', href: 'https://calendly.com/office-jsbfirm/30min' },
   { icon: Languages, label: 'Support', value: 'English & Spanish' },
 ];
@@ -78,7 +77,7 @@ export default function Contact() {
             </h2>
             <p className="mt-5 text-navy-500 leading-relaxed text-lg">
               Whether you're an independent agent looking for the right tools or
-              an agency ready to scale — we'd love to hear from you.
+              an agency ready to scale, we'd love to hear from you.
             </p>
 
             <div className="mt-10 space-y-3">

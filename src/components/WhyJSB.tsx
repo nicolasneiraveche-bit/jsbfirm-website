@@ -5,20 +5,25 @@ import {
   TrendingUp,
   ShieldCheck,
   Cpu,
+  Brain,
+  Clock,
+  HeartHandshake,
 } from 'lucide-react';
 
 const CHOICE_URL = 'https://choiceinnovate.com/';
 
-const points = [
+const aiPoints = [
   {
     icon: ShieldCheck,
-    title: 'Real infrastructure behind every agent.',
-    desc: "The insurance industry is under more regulatory pressure than it's ever faced, and the agents who make it through are the ones with real infrastructure behind them.",
+    title: 'Compliance records that build themselves.',
   },
   {
-    icon: Cpu,
-    title: 'Investing in CHOICE.',
-    desc: "That's the standard we hold ourselves to — and it's why we're investing in CHOICE, our technology platform, alongside the agency work we've always done.",
+    icon: Clock,
+    title: 'Retention outreach that starts before a client thinks about leaving.',
+  },
+  {
+    icon: Brain,
+    title: 'Coaching built into your workflow, not scheduled three weeks out.',
   },
 ];
 
@@ -26,30 +31,83 @@ export default function WhyJSB() {
   return (
     <section id="where-headed" className="relative py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="max-w-2xl mb-14">
+        {/* Leading With AI */}
+        <div className="max-w-3xl mb-12">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-            Where We're Headed
+            Leading With AI, Not Waiting On It
           </span>
-          <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight">
-            Setting the standard,{' '}
-            <span className="italic text-gold-gradient">not chasing it.</span>
+          <h2 className="mt-4 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+            Less time on the extra stuff.{' '}
+            <span className="italic text-gold-gradient">More time on what matters.</span>
           </h2>
+          <p className="mt-5 text-lg text-navy-500 leading-relaxed">
+            Other industries have already put AI to work — less busywork, more time
+            on what matters. Insurance is still catching up. We're building CHOICE
+            with AI at the core, not to replace agents, but to take the paperwork,
+            follow-up, and repetitive tasks off your plate.
+          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mb-14">
-          {points.map((p, i) => (
+        <div className="grid sm:grid-cols-3 gap-5 max-w-5xl mb-16">
+          {aiPoints.map((p, i) => (
             <div
               key={p.title}
-              className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-7 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
+              className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-4 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
                 <p.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
               </div>
-              <h3 className="font-semibold text-navy-900 text-base">{p.title}</h3>
-              <p className="mt-2 text-sm text-navy-500 leading-relaxed">{p.desc}</p>
+              <p className="text-sm font-medium text-navy-700 leading-relaxed">
+                {p.title}
+              </p>
             </div>
           ))}
+        </div>
+
+        {/* A Home for Every Stage */}
+        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mb-16">
+          <Link
+            to="/agents"
+            className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-8 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1 block"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+                <HeartHandshake className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+              </div>
+              <h3 className="font-display text-2xl text-navy-900 tracking-tight">
+                Agents
+              </h3>
+            </div>
+            <p className="text-sm text-navy-500 leading-relaxed">
+              Get contracted, get leads, get supported.
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-gold">
+              Learn more
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </Link>
+
+          <Link
+            to="/agencies"
+            className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-8 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1 block"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+                <TrendingUp className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+              </div>
+              <h3 className="font-display text-2xl text-navy-900 tracking-tight">
+                Agencies
+              </h3>
+            </div>
+            <p className="text-sm text-navy-500 leading-relaxed">
+              Build and manage your team without losing your mind.
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-gold">
+              Learn more
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </Link>
         </div>
 
         {/* CHOICE CTA */}
@@ -60,18 +118,19 @@ export default function WhyJSB() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
           </div>
 
-          <div className="relative px-8 py-14 lg:px-16 lg:py-16">
+          <div className="relative px-8 py-12 lg:px-16 lg:py-14">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
               <div className="max-w-xl">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium text-gold mb-5">
-                  <TrendingUp className="w-3.5 h-3.5" />
-                  CHOICE
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium text-gold mb-4">
+                  <Cpu className="w-3.5 h-3.5" />
+                  Something Real Is Coming
                 </div>
                 <h3 className="font-display text-3xl lg:text-4xl text-white tracking-tight">
-                  Meet the platform we're building.
+                  One platform. One login. Everything you need.
                 </h3>
-                <p className="mt-4 text-navy-300 leading-relaxed">
-                  One login. Every tool. Built by agents, for agents.
+                <p className="mt-3 text-navy-300 leading-relaxed">
+                  Most agents juggle five or six different tools to do one job. We're
+                  building CHOICE to fix that. It's ours. Soon, it'll be yours too.
                 </p>
               </div>
 
@@ -80,7 +139,7 @@ export default function WhyJSB() {
                   to="/choice"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-navy-900 hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
                 >
-                  Meet CHOICE
+                  Explore CHOICE
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
                 <a
@@ -95,6 +154,17 @@ export default function WhyJSB() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Closing */}
+        <div className="mt-16 max-w-3xl mx-auto text-center reveal">
+          <p className="text-lg text-navy-600 leading-relaxed">
+            You didn't get into this business to feel alone in it. Neither did we —
+            that's why JSB exists.
+          </p>
+          <p className="mt-3 text-lg text-navy-700 font-medium leading-relaxed">
+            You built something real. We're here to help you keep building it.
+          </p>
         </div>
       </div>
     </section>

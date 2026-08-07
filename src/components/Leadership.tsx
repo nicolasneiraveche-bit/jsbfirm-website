@@ -107,7 +107,7 @@ const leaders: Leader[] = [
     name: 'Dave Asaad',
     initials: 'DA',
     photo: '/WhatsApp_Image_2026-08-05_at_11.29.38.jpeg',
-    role: 'Sales Manager',
+    role: 'Sales Director',
     tagline:
       "Client-facing leader driving revenue growth and long-term customer relationships across JSB Firm's book of business.",
     background:
