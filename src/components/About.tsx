@@ -83,7 +83,7 @@ export default function About() {
 
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="/contact"
+                  href="/join"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
                 >
                   Partner With Us

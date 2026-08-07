@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'For Agents', to: '/agents' },
   { label: 'For Agencies', to: '/agencies' },
   { label: 'Partners', to: '/partners' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Join Us', to: '/join' },
 ];
 
 

@@ -6,6 +6,7 @@ import ForAgents from '@/pages/ForAgents';
 import ForAgencies from '@/pages/ForAgencies';
 import PartnersPage from '@/pages/Partners';
 import ContactPage from '@/pages/Contact';
+import JoinUsPage from '@/pages/JoinUs';
 import ChoiceInnovate from '@/components/ChoiceInnovate';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/agencies" element={<ForAgencies />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/join" element={<JoinUsPage />} />
           <Route path="/choice" element={<ChoiceInnovate />} />
         </Route>
       </Routes>

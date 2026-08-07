@@ -202,7 +202,7 @@ export default function Partners() {
                     agent, we'd love to explore how we can grow together.
                   </p>
                   <Link
-                    to="/contact"
+                    to="/join"
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-navy-900 hover:text-gold transition-colors"
                   >
                     Start the conversation
