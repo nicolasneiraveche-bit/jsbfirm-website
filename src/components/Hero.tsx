@@ -20,14 +20,6 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
-            <div className="reveal is-visible inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
-              </span>
-              U.S. Health Insurance · Medicare · ACA
-            </div>
-
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
               Modern Insurance Solutions for the{' '}
               <span className="italic text-gold-gradient">Next Generation.</span>

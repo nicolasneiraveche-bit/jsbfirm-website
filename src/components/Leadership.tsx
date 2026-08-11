@@ -19,13 +19,13 @@ const leaders: Leader[] = [
     name: 'Javier Castillo',
     initials: 'JC',
     photo: '/javier.png',
-    role: 'Chief Executive Officer',
+    role: 'Founder & Chief Executive Officer',
     tagline:
       'Entrepreneurial operator bringing a product-led perspective to insurance and building JSB Firm around a clearer, more customer-centered future.',
     background:
       "Javier's path to CEO was entrepreneurial rather than technical first. He built and successfully ran a marketing technology company, where hands-on work with front-end systems and digital infrastructure taught him to identify structural gaps most executives never see. That instinct led him to insurance: a legacy industry still organized around transactions while customers increasingly expect products. Javier brought key players together to found JSB Firm and lead its flagship platform, CHOICE.",
     currentRole:
-      'As CEO of JSB Firm, Javier sets strategies the company can execute against, allocates capital with discipline, builds and retains the right team, and maintains credibility with the people who decide whether to fund, partner with, or join the company.',
+      'As Founder & CEO of JSB Firm, Javier sets strategies the company can execute against, allocates capital with discipline, builds and retains the right team, and maintains credibility with the people who decide whether to fund, partner with, or join the company.',
     strengths: [
       'Strategic vision',
       'Talent recruitment & team building',
@@ -85,13 +85,13 @@ const leaders: Leader[] = [
     name: 'Nick Veche',
     initials: 'NV',
     photo: '/nick.png',
-    role: 'Chief Financial & Operations Officer',
+    role: 'Director of Finance & Operations',
     tagline:
       "Billing and operations leader who pairs hands-on financial management with applied AI to make JSB Firm's back office faster and more reliable.",
     background:
       'Nick built his career managing the operational and financial backbone of client-facing organizations, serving as Billing Manager and Operations Manager. Alongside that foundation, he has developed strong applied experience with AI tools and workflows, streamlining billing accuracy, reporting, and operational processes.',
     currentRole:
-      'As Chief Financial & Operations Officer of JSB Firm, Nick owns billing integrity, operational workflows, and the systems that connect finance to day-to-day execution across the company.',
+      'As Director of Finance & Operations of JSB Firm, Nick owns billing integrity, operational workflows, and the systems that connect finance to day-to-day execution across the company.',
     strengths: [
       'Billing & revenue operations',
       'Operations management',

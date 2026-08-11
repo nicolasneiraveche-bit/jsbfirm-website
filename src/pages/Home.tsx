@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Video, ArrowRight, Handshake } from 'lucide-react';
+import CarrierMarquee from '@/components/CarrierMarquee';
 
 const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
 
 export default function Home() {
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+    <>
+    <section className="relative min-h-screen flex items-center pt-32 pb-8 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-pattern opacity-60" />
         <div className="absolute top-0 right-0 w-[55%] h-[70%] bg-gradient-to-bl from-navy-100/80 via-gold-50/40 to-transparent rounded-bl-[200px]" />
@@ -18,14 +20,6 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
-              </span>
-              U.S. Health Insurance · Medicare · ACA
-            </div>
-
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
               Modern Insurance Solutions for the{' '}
               <span className="italic text-gold-gradient">Next Generation.</span>
@@ -102,5 +96,21 @@ export default function Home() {
         </div>
       </div>
     </section>
+
+      {/* Carrier marquee */}
+      <section className="relative pt-6 pb-16 lg:pb-20 bg-navy-50/40">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="text-center mb-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Trusted Carriers
+            </span>
+            <h2 className="mt-3 font-display text-3xl lg:text-4xl text-navy-900 tracking-tight leading-tight text-balance">
+              Proud to partner with some of the industry's top carriers
+            </h2>
+          </div>
+          <CarrierMarquee />
+        </div>
+      </section>
+    </>
   );
 }
