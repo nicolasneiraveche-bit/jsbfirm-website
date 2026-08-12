@@ -21,13 +21,11 @@ export default function Home() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
-              Modern Insurance Solutions for the{' '}
-              <span className="italic text-gold-gradient">Next Generation.</span>
+              The Future of Insurance <span className="italic text-gold-gradient">Starts Here.</span>
             </h1>
 
             <p className="mt-7 text-lg text-navy-500 leading-relaxed max-w-xl">
-              Helping agencies, brokers, and independent agents scale through
-              technology, AI, automation, and operational excellence.
+              Setting the New Standard for Insurance Growth.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">

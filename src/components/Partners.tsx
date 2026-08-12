@@ -37,8 +37,7 @@ export default function Partners() {
               Partners
             </span>
             <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-              The Future of Insurance{' '}
-              <span className="italic text-gold-gradient">Starts Here.</span>
+              Stronger together
             </h2>
             <p className="mt-5 text-navy-500 leading-relaxed text-lg">
               We partner with carriers, technology providers, and agency networks

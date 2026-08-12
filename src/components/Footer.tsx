@@ -18,9 +18,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center">
             <img
-              src="/JSB_Firm_Logo_latest_transparent.png"
+              src="/JSB_Firm_Logo_full_transparent.png"
               alt="JSB Firm logo"
-              className="h-20 w-auto max-w-[300px] object-contain"
+              className="h-20 w-auto max-w-[320px] object-contain"
             />
           </Link>
 
