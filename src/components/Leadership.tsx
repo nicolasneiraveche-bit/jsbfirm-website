@@ -41,7 +41,7 @@ const leaders: Leader[] = [
     name: 'Benjamin Sullivan',
     initials: 'BS',
     photo: '/benjamin.png',
-    role: 'Chief Operating Officer',
+    role: 'Founder & Chief Operating Officer',
     tagline:
       'Insurance-agency executive with experience leading an organization of more than 100 licensed agents.',
     background:
@@ -63,7 +63,7 @@ const leaders: Leader[] = [
     name: 'Muhammad Shahban',
     initials: 'MS',
     photo: '/shabhan.png',
-    role: 'Chief Technology Officer',
+    role: 'Founder & Chief Technology Officer',
     tagline:
       'Performance-marketing and technology leader with six years of CEO/CTO experience in lead generation, PPC, and Meta advertising.',
     background:

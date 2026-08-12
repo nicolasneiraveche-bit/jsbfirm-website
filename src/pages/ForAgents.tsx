@@ -19,7 +19,7 @@ const benefits = [
   {
     icon: Target,
     title: 'Leads, provided.',
-    desc: 'We put opportunity in front of you instead of asking you to go find it and pay for it yourself.',
+    desc: 'We put opportunity in front of you instead of asking you to find and pay for it yourself.',
   },
   {
     icon: Wallet,
@@ -39,7 +39,7 @@ const benefits = [
   {
     icon: ShieldCheck,
     title: 'Compliance that has your back.',
-    desc: "CMS and state requirements handled at the organizational level, so you're supported, not left exposed and figuring it out alone.",
+    desc: "CMS and state requirements handled at the organizational level \u2014 you're supported, not left exposed and figuring it out alone.",
   },
   {
     icon: Receipt,
@@ -49,12 +49,12 @@ const benefits = [
   {
     icon: LayoutDashboard,
     title: 'A platform built for you, coming soon.',
-    desc: "CHOICE will bring your leads, dialer, submissions, and commissions into one login. We're building it because we got tired of the same five tools you are.",
+    desc: 'CHOICE will bring your leads, dialer, submissions, and commissions into one login. We built it because we got tired of the same five tired tools.',
   },
   {
     icon: TrendingUp,
     title: 'Room to grow, not just a contract.',
-    desc: "We don't want you to plateau. As you produce, we invest more into you: more leads, more support, more opportunity to build out a team of your own if that's where you want to go.",
+    desc: "As you produce, we invest more into you, more leads, more support, more opportunity to build a team of your own if that's where you want to go.",
   },
 ];
 
@@ -84,9 +84,43 @@ export default function ForAgents() {
               Your book. Your clients.{' '}
               <span className="italic text-gold-gradient">Our support behind you.</span>
             </h1>
+
+            <p className="mt-6 text-lg lg:text-xl text-navy-500 leading-relaxed max-w-2xl">
+              We've been where you are, staring down a stack of leads with no
+              real system behind them, wondering if the numbers would work out.
+              We started JSB after years of that exact grind. So this isn't a
+              pitch built in a boardroom. It's what we wished someone had built
+              for us.
+            </p>
+
+            <p className="mt-5 text-base lg:text-lg text-navy-700 font-medium leading-relaxed max-w-2xl">
+              Your book of business is yours. We're not here to take a piece of
+              what you build, we're here to make sure you can build it in the
+              first place.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <Link
+                to="/join"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
+              >
+                <Check className="w-4 h-4" />
+                Get Contracted
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-navy-200 bg-white px-7 py-3.5 text-sm font-medium text-navy-900 hover:bg-navy-50 hover:border-navy-300 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <Calendar className="w-4 h-4 text-gold" />
+                Talk to Someone
+              </a>
+            </div>
           </div>
 
-          <div className="mt-8 relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 group">
+          <div className="mt-10 relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 group">
             <img
               src="/agents-hero.jpg"
               alt="Call center agent with headset working at a computer"
@@ -107,21 +141,14 @@ export default function ForAgents() {
                 The Deal, Plainly
               </span>
               <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-                We handle what makes the work possible.
+                You focus on people.
               </h2>
             </div>
             <div className="lg:col-span-8 space-y-4 text-lg text-navy-500 leading-relaxed">
               <p>
-                You do the work that matters: the calls, the relationships, the
-                follow-through. We handle what makes that possible: leads in your
-                pipeline, the upfront cost of getting started, contracts with the
-                carriers you need, and a compliance system that keeps your license
-                safe.
-              </p>
-              <p className="text-navy-700 font-medium">
-                Your book of business is yours. We're not here to take a piece of
-                what you build, we're here to make sure you can build it in the
-                first place.
+                We handle everything else: leads, upfront costs, contracts,
+                compliance. No fine print, no catch. Just the infrastructure we
+                wish we'd had when we were starting out.
               </p>
             </div>
           </div>
