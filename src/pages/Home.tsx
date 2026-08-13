@@ -7,7 +7,7 @@ const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
 export default function Home() {
   return (
     <>
-    <section className="relative min-h-screen flex items-center pt-32 pb-8 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-28 pb-6 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-pattern opacity-60" />
         <div className="absolute top-0 right-0 w-[55%] h-[70%] bg-gradient-to-bl from-navy-100/80 via-gold-50/40 to-transparent rounded-bl-[200px]" />
@@ -18,17 +18,34 @@ export default function Home() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
               The Future of Insurance <span className="italic text-gold-gradient">Starts Here.</span>
             </h1>
 
-            <p className="mt-7 text-lg text-navy-500 leading-relaxed max-w-xl">
-              Setting the New Standard for Insurance Growth.
+            <p className="mt-5 text-xl font-semibold text-navy-800 leading-snug max-w-xl">
+              Built by agents, for agents.
+            </p>
+            <p className="mt-3 text-base text-navy-500 leading-relaxed max-w-xl">
+              We've been where you're standing: building a book, wondering if the
+              support would actually be there when you needed it. So we built it.
+              Real people behind you, not a ticket number.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-6 border-l-2 border-gold/40 pl-4 max-w-xl">
+              <p className="text-sm font-semibold tracking-wide uppercase text-gold">
+                We are not another Insurance Company. We are People that have been in your shoes.
+              </p>
+              <p className="mt-2 text-sm text-navy-500 leading-relaxed">
+                We've built books, chased leads, and wondered if the support
+                would actually show up when we needed it. That's exactly why JSB
+                exists, so you're never figuring it out alone. Whatever you're
+                building, we're behind you the whole way.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href={CALENDLY_URL}
                 target="_blank"
