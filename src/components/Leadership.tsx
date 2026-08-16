@@ -133,7 +133,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
   return (
     <div
       className={`reveal group relative ${
-        index % 2 === 1 ? 'lg:mt-24' : ''
+        index % 2 === 1 ? 'lg:mt-16' : ''
       }`}
       style={{ transitionDelay: `${(index % 2) * 100}ms` }}
     >
@@ -277,7 +277,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
 
 export default function Leadership() {
   return (
-    <section id="leadership" className="relative py-16 lg:py-20 bg-navy-50/40">
+    <section id="leadership" className="relative py-12 lg:py-16 bg-navy-50/40">
       <div className="absolute inset-0 dot-pattern opacity-40" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section header */}
@@ -285,18 +285,18 @@ export default function Leadership() {
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
             Our Team
           </span>
-          <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+          <h2 className="mt-4 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
             Leadership built for growth,{' '}
             <span className="italic text-gold-gradient">execution, and scale.</span>
           </h2>
-          <p className="mt-6 text-navy-500 leading-relaxed text-lg">
+          <p className="mt-5 text-navy-500 leading-relaxed text-lg">
             A complementary executive team across demand generation, insurance
             operations, product, technology-enabled marketing, and brand.
           </p>
         </div>
 
         {/* Executive team bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 reveal">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 reveal">
           {leaders.map((l, i) => (
             <div key={l.name} className="flex items-center gap-3">
               <span className="text-sm font-medium text-navy-700">{l.name}</span>
@@ -308,14 +308,14 @@ export default function Leadership() {
         </div>
 
         {/* Leader cards */}
-        <div className="mt-12 grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="mt-10 grid lg:grid-cols-2 gap-8 lg:gap-10">
           {leaders.map((leader, i) => (
             <LeaderCard key={leader.name} leader={leader} index={i} />
           ))}
         </div>
 
         {/* Confidential footer */}
-        <p className="mt-12 text-center text-xs font-medium text-navy-400 uppercase tracking-[0.2em] reveal">
+        <p className="mt-10 text-center text-xs font-medium text-navy-400 uppercase tracking-[0.2em] reveal">
           Confidential &middot; 2026
         </p>
       </div>

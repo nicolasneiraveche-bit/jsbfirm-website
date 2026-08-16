@@ -12,6 +12,17 @@ const carriers = [
   { name: 'Aflac', website: 'https://www.aflac.com', logo: '/carriers/aflac.svg' },
   { name: 'American Amicable', website: 'https://www.americanamicable.com', logo: '/carriers/americanamicable.png' },
   { name: 'Allstate Benefits', website: 'https://www.allstate.com', logo: '/carriers/allstate.svg' },
+  { name: 'Blue Cross Blue Shield', website: 'https://www.bcbs.com', logo: '/carriers/bluecrossblueshield.svg' },
+  { name: 'ConnectiCare', website: 'https://www.connecticare.com', logo: '/carriers/connecticare.svg' },
+  { name: 'Imperial Health Plan', website: 'https://imperialhealthplan.com', logo: '/carriers/imperialhealthplan.svg' },
+  { name: 'WellCare', website: 'https://www.wellcare.com', logo: '/carriers/wellcare.svg' },
+  { name: 'Alignment Health', website: 'https://www.alignmenthealth.com', logo: '/carriers/alignmenthealth.svg' },
+  { name: 'Centene', website: 'https://www.centene.com', logo: '/carriers/centene.svg' },
+  { name: 'Kaiser Permanente', website: 'https://healthy.kaiserpermanente.org', logo: '/carriers/kaiserpermanente.svg' },
+  { name: 'Zing Health', website: 'https://www.myzinghealth.com', logo: '/carriers/zinghealth.svg' },
+  { name: 'Ameritas', website: 'https://www.ameritas.com', logo: '/carriers/ameritas.svg' },
+  { name: 'Cigna', website: 'https://www.cigna.com', logo: '/carriers/cigna.svg' },
+  { name: 'Clover', website: 'https://www.cloverhealth.com', logo: '/carriers/clover.svg' },
 ];
 
 export default function CarrierMarquee() {

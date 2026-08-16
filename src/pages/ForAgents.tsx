@@ -62,7 +62,7 @@ export default function ForAgents() {
   return (
     <section className="relative overflow-hidden">
       {/* Hero */}
-      <div className="relative pt-28 pb-12 lg:pt-32 lg:pb-16">
+      <div className="relative pt-28 pb-10 lg:pt-32 lg:pb-12">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 grid-pattern opacity-60" />
           <div className="absolute top-0 right-0 w-[55%] h-[70%] bg-gradient-to-bl from-navy-100/80 via-gold-50/40 to-transparent rounded-bl-[200px]" />
@@ -132,7 +132,7 @@ export default function ForAgents() {
       </div>
 
       {/* The Deal, Plainly */}
-      <div className="relative py-14 lg:py-20 bg-navy-50/40">
+      <div className="relative py-12 lg:py-16 bg-navy-50/40">
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-10">
@@ -156,9 +156,12 @@ export default function ForAgents() {
       </div>
 
       {/* What You Get */}
-      <div className="relative py-14 lg:py-20">
+      <div className="relative py-12 lg:py-16">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
+        </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-2xl mb-10">
+          <div className="mb-8">
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
               What You Get
             </span>
@@ -172,13 +175,13 @@ export default function ForAgents() {
               <div
                 key={b.title}
                 className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
-                style={{ transitionDelay: `${i * 40}ms` }}
+                style={{ transitionDelay: `${i * 50}ms` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
                   <b.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
                 </div>
-                <h3 className="font-semibold text-navy-900 text-base">{b.title}</h3>
-                <p className="mt-2 text-sm text-navy-500 leading-relaxed">{b.desc}</p>
+                <h3 className="font-display text-lg text-navy-900 tracking-tight mb-2">{b.title}</h3>
+                <p className="text-sm text-navy-500 leading-relaxed">{b.desc}</p>
                 <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             ))}
@@ -187,7 +190,7 @@ export default function ForAgents() {
       </div>
 
       {/* The Feeling */}
-      <div className="relative py-14 lg:py-20">
+      <div className="relative py-12 lg:py-16">
         <div className="absolute inset-0 -z-10">
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
         </div>
@@ -206,7 +209,7 @@ export default function ForAgents() {
       </div>
 
       {/* CTA */}
-      <div className="relative py-14 lg:py-20">
+      <div className="relative py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="relative rounded-3xl bg-navy-900 overflow-hidden">
             <div className="absolute inset-0">
@@ -215,7 +218,7 @@ export default function ForAgents() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
             </div>
 
-            <div className="relative px-8 py-14 lg:px-16 lg:py-18 text-center">
+            <div className="relative px-8 py-12 lg:px-16 lg:py-14 text-center">
               <h2 className="font-display text-4xl lg:text-5xl text-white tracking-tight">
                 Ready to get started?
               </h2>
@@ -225,7 +228,7 @@ export default function ForAgents() {
                 from here.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   to="/join"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-navy-900 hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"

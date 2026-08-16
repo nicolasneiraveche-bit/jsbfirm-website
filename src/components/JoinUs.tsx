@@ -102,7 +102,7 @@ export default function JoinUs() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Hero */}
+      {/* Hero + Form (form is first thing visitors see) */}
       <div className="relative pt-28 pb-12 lg:pt-32 lg:pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 grid-pattern opacity-60" />
@@ -112,79 +112,29 @@ export default function JoinUs() {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-5">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
-              </span>
-              Join Us
-            </div>
-
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
-              Build your career{' '}
-              <span className="italic text-gold-gradient">with backing.</span>
-            </h1>
-
-            <p className="mt-6 text-lg text-navy-500 leading-relaxed max-w-2xl">
-              We're looking for agents and agencies who want to grow — and people
-              who want to build the future of insurance alongside us. Tell us
-              about yourself and we'll be in touch.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Why Join */}
-      <div className="relative py-14 lg:py-20 bg-navy-50/40">
-        <div className="absolute inset-0 dot-pattern opacity-40" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-2xl mb-10">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-              Why Join JSB
-            </span>
-            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-              A place where your work is backed, not just watched.
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {perks.map((p, i) => (
-              <div
-                key={p.title}
-                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
-                style={{ transitionDelay: `${i * 40}ms` }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
-                  <p.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
-                </div>
-                <h3 className="font-semibold text-navy-900 text-base">{p.title}</h3>
-                <p className="mt-2 text-sm text-navy-500 leading-relaxed">{p.desc}</p>
-                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Form */}
-      <div className="relative py-14 lg:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+            {/* Left column: intro + contact info */}
             <div className="lg:col-span-5 reveal">
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-                Apply
-              </span>
-              <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-                Let's start a{' '}
-                <span className="italic text-gold-gradient">conversation.</span>
-              </h2>
-              <p className="mt-5 text-navy-500 leading-relaxed text-lg">
-                Tell us a bit about yourself and what you're looking for. A member
-                of our team will reach out within one business day.
+              <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+                </span>
+                Join Us
+              </div>
+
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
+                Build your career{' '}
+                <span className="italic text-gold-gradient">with backing.</span>
+              </h1>
+
+              <p className="mt-5 text-lg text-navy-500 leading-relaxed max-w-xl">
+                We're looking for agents and agencies who want to grow — and
+                people who want to build the future of insurance alongside us.
+                Tell us about yourself and we'll be in touch.
               </p>
 
-              <div className="mt-10 space-y-3">
+              <div className="mt-8 space-y-3">
                 {contactInfo.map((info) => {
                   const content = (
                     <div className="flex items-center gap-4 rounded-xl border border-navy-200/60 bg-white p-4 hover:border-navy-300 transition-colors duration-300 group">
@@ -212,6 +162,7 @@ export default function JoinUs() {
               </div>
             </div>
 
+            {/* Right column: form */}
             <div className="lg:col-span-7 reveal">
               <div className="rounded-3xl border border-navy-200/60 bg-white p-8 lg:p-10 shadow-sm">
                 {status === 'success' ? (
@@ -237,7 +188,7 @@ export default function JoinUs() {
                 ) : (
                   <>
                     {/* Role tabs */}
-                    <div className="mb-8">
+                    <div className="mb-6">
                       <div className="flex gap-2 p-1.5 rounded-2xl bg-navy-50 border border-navy-200/60">
                         {roles.map((r) => (
                           <button
@@ -365,6 +316,42 @@ export default function JoinUs() {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Join */}
+      <div className="relative py-12 lg:py-16 bg-navy-50/40">
+        <div className="absolute inset-0 dot-pattern opacity-40" />
+        <div className="relative mx-auto max-w-5xl px-6 lg:px-10">
+          <div className="max-w-2xl mb-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Why Join JSB
+            </span>
+            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+              A place where your work is backed, not just watched.
+            </h2>
+          </div>
+
+          <div className="divide-y divide-navy-200">
+            {perks.map((p, i) => (
+              <div
+                key={p.title}
+                className="reveal group flex items-start gap-6 lg:gap-8 py-6 first:pt-0 transition-all duration-400"
+                style={{ transitionDelay: `${i * 40}ms` }}
+              >
+                <div className="flex-shrink-0 font-display text-3xl lg:text-4xl text-gold/30 group-hover:text-gold/60 transition-colors duration-300 leading-none tabular-nums">
+                  {i + 1}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3">
+                    <p.icon className="w-5 h-5 text-navy-400 group-hover:text-gold transition-colors duration-300 flex-shrink-0" />
+                    <h3 className="font-display text-xl lg:text-2xl text-navy-900 tracking-tight">{p.title}</h3>
+                  </div>
+                  <p className="mt-2 text-base text-navy-500 leading-relaxed max-w-xl">{p.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

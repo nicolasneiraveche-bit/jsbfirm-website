@@ -1,60 +1,43 @@
-import {
-  ShieldCheck,
-  TrendingUp,
-  Sparkles,
-  BookOpen,
-  Wallet,
-  LifeBuoy,
-  Scale,
-  Network,
-  Cpu,
-} from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, MessageCircle, Users, Eye, HeartHandshake, Check } from 'lucide-react';
 
-const stats = [
-  'MMO-level distribution organization',
-  'Multi-line — Medicare, life, and general',
-  '20+ years of leadership experience',
-  'Proprietary technology (CHOICE), built in-house',
-];
+const CALENDLY_URL = 'https://calendly.com/office-jsbfirm/30min';
 
-const reasons = [
+const principles = [
   {
-    icon: BookOpen,
-    title: 'Your book is yours.',
-    desc: "No fine print that quietly takes it back. What you build stays yours.",
+    icon: Users,
+    title: 'People Before Policies',
+    desc: 'Every relationship starts with understanding the person, not simply looking at a product.',
   },
   {
-    icon: Wallet,
-    title: 'We front the cost, not you.',
-    desc: 'Leads and startup costs add up fast. We cover that upfront so you can focus on producing.',
+    icon: Eye,
+    title: 'Clarity Before Complexity',
+    desc: 'Insurance is complicated enough. Communication should be straightforward.',
   },
   {
-    icon: LifeBuoy,
-    title: "You're never on an island.",
-    desc: 'Real people, real answers — not a ticket number. If something is wrong, someone picks up.',
+    icon: HeartHandshake,
+    title: 'Relationships Over Transactions',
+    desc: 'The goal is relationships that last longer than a single policy.',
   },
   {
-    icon: Scale,
-    title: 'Compliance that protects you.',
-    desc: 'CMS and state rules are not optional. We build compliance into how we operate so you are covered.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'We grow with you.',
-    desc: 'As your book grows, your agency grows — we scale alongside you, not off of you.',
-  },
-  {
-    icon: Cpu,
-    title: "We're building the tools you deserve.",
-    desc: 'Our team is building CHOICE, a platform meant to take the busywork off your plate.',
+    icon: Check,
+    title: 'Do What You Say',
+    desc: 'Trust is built through consistency, transparency, and following through.',
   },
 ];
 
-export default function About() {
+const beliefs = [
+  'People before policies.',
+  'Clarity before complexity.',
+  'Relationships before transactions.',
+  'Long-term trust over short-term wins.',
+];
+
+export function AboutTop() {
   return (
-    <section id="about" className="relative overflow-hidden">
+    <>
       {/* Hero */}
-      <div className="relative pt-32 pb-8 lg:pt-36 lg:pb-10">
+      <section className="relative pt-32 pb-10 lg:pt-36 lg:pb-12 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 grid-pattern opacity-60" />
           <div className="absolute top-0 right-0 w-[55%] h-[70%] bg-gradient-to-bl from-navy-100/80 via-gold-50/40 to-transparent rounded-bl-[200px]" />
@@ -63,43 +46,38 @@ export default function About() {
         </div>
 
         <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-2 lg:gap-4 items-center justify-items-center">
+          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-10 items-center justify-items-center">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-5">
-                <Sparkles className="w-3.5 h-3.5 text-gold" />
-                The New Standard for Insurance
-              </div>
-
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
-                You built your book.{' '}
-                <span className="italic text-gold-gradient">We've got the rest.</span>
+                Built on Relationships.{' '}
+                <span className="italic text-gold-gradient">Driven by Purpose.</span>
               </h1>
 
-              <p className="mt-5 text-lg text-navy-500 leading-relaxed max-w-2xl">
-                So you can show up for the people counting on you. JSB Firm is home
-                for independent agents and agencies — Medicare, life, and general
-                lines. Built on technology. Backed by real people.
+              <p className="mt-6 text-lg text-navy-500 leading-relaxed max-w-2xl">
+                JSB Firm was created around a simple belief — insurance should
+                be about people first. Not transactions. Not fine print. Not
+                policies pushed on someone who never had the chance to
+                understand them.
               </p>
 
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="/join"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
                 >
-                  Partner With Us
+                  <MessageCircle className="w-4 h-4 text-gold group-hover:text-white transition-colors" />
+                  Let's Talk
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
-                <a
-                  href="/agents"
+                <Link
+                  to="/"
                   className="group inline-flex items-center justify-center gap-2 rounded-full border border-navy-200 bg-white/60 px-7 py-3.5 text-sm font-medium text-navy-700 hover:border-navy-300 hover:bg-white transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  For Agents
-                </a>
-                <a
-                  href="/agencies"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-navy-200 bg-white/60 px-7 py-3.5 text-sm font-medium text-navy-700 hover:border-navy-300 hover:bg-white transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  For Agencies
-                </a>
+                  What We Do
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
               </div>
             </div>
 
@@ -128,100 +106,141 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Big Enough to Matter */}
-      <div className="relative py-8 lg:py-12 bg-navy-50/40">
-        <div className="absolute inset-0 dot-pattern opacity-40" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-3xl mb-8">
-            <h2 className="font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-              Big Enough to Matter,{' '}
-              <span className="italic text-gold-gradient">Close Enough to Care</span>
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {stats.map((stat, i) => (
-              <div
-                key={stat}
-                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
-                style={{ transitionDelay: `${i * 50}ms` }}
-              >
-                <div className="w-10 h-10 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-4 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
-                  <div className="w-2 h-2 rounded-full bg-gold group-hover:scale-125 transition-transform duration-300" />
-                </div>
-                <p className="text-sm font-medium text-navy-700 leading-relaxed">
-                  {stat}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-8 text-lg text-navy-600 font-medium">
-            We support you, so you can support your clients.
-          </p>
-        </div>
-      </div>
-
-      {/* Why Agents Call This Home */}
-      <div className="relative py-10 lg:py-14">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="max-w-2xl mb-8">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-              Why Agents Call This Home
-            </span>
-            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-              Your book of business is yours.{' '}
-              <span className="italic text-gold-gradient">That doesn't change.</span>
-            </h2>
-            <p className="mt-4 text-lg text-navy-500 leading-relaxed">
-              What we handle is everything around it. We provide the leads. We front
-              the upfront cost. We give you real training, direct carrier contracts,
-              and a compliance system that keeps you protected. You focus on your
-              clients — we handle the rest.
+      {/* Why We Exist */}
+      <section className="relative py-12 lg:py-16">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+            Why We Exist
+          </span>
+          <div className="mt-5 space-y-5 text-lg text-navy-600 leading-relaxed">
+            <p>
+              Insurance can feel transactional, complicated, and impersonal. You
+              fill out forms, answer questions, get handed a policy, and then
+              you're on your own. The person who helped you is gone. The
+              relationship ended the moment the paperwork was signed.
+            </p>
+            <p>
+              JSB Firm believes it should be different. We exist to create
+              genuine relationships, communicate honestly, and help people
+              navigate important decisions with confidence. Not because it's
+              good for business, but because it's how insurance should have
+              worked all along.
+            </p>
+            <p className="text-navy-800 font-display text-xl italic leading-relaxed">
+              This is a philosophy, not a sales pitch.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl">
-            {reasons.map((r, i) => (
+      {/* How We Think */}
+      <section className="relative py-12 lg:py-16">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          <div className="max-w-2xl mb-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              How We Think
+            </span>
+            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+              The principles behind every conversation.
+            </h2>
+          </div>
+
+          <div className="space-y-0">
+            {principles.map((p, i) => (
               <div
-                key={r.title}
-                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
-                style={{ transitionDelay: `${i * 50}ms` }}
+                key={p.title}
+                className={`reveal flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 lg:gap-12 py-8 border-t border-navy-200 first:border-t-0 first:pt-0`}
+                style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-4 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
-                  <r.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+                <div className="lg:w-1/3 flex-shrink-0">
+                  <div className="font-display text-5xl lg:text-6xl text-gold/20 leading-none tabular-nums">
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
                 </div>
-                <h3 className="font-semibold text-navy-900 text-base">{r.title}</h3>
-                <p className="mt-2 text-sm text-navy-500 leading-relaxed">{r.desc}</p>
+                <div className="lg:w-2/3">
+                  <div className="flex items-center gap-3 mb-3">
+                    <p.icon className="w-5 h-5 text-gold flex-shrink-0" />
+                    <h3 className="font-display text-2xl lg:text-3xl text-navy-900 tracking-tight">{p.title}</h3>
+                  </div>
+                  <p className="text-lg text-navy-500 leading-relaxed">{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
+    </>
+  );
+}
 
-      {/* Built to Be Different */}
-      <div className="relative py-10 lg:py-14 bg-navy-50/40">
-        <div className="absolute inset-0 dot-pattern opacity-40" />
-        <div className="relative mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="reveal">
+export function AboutBottom() {
+  return (
+    <>
+      {/* What We Believe */}
+      <section className="relative py-12 lg:py-16 bg-navy-900 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 grid-pattern opacity-20" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="text-center mb-10">
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-              Built to Be Different
+              What We Believe
             </span>
-            <div className="mt-4 space-y-4 text-lg text-navy-600 leading-relaxed">
-              <p>
-                Plenty of organizations in this industry will hand you a contract
-                and little else. We built JSB because we were the agents on the other
-                side of that — wishing someone had built something better. So we did.
-              </p>
-              <p className="text-navy-700 font-medium">
-                That's still the standard we hold ourselves to.
-              </p>
-            </div>
+            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-white tracking-tight leading-tight text-balance">
+              The philosophy behind everything.
+            </h2>
+          </div>
+
+          <div className="space-y-0">
+            {beliefs.map((b, i) => (
+              <div
+                key={b}
+                className="reveal flex items-center gap-6 py-5 border-t border-white/10 first:border-t-0"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <span className="font-display text-2xl text-gold/40 tabular-nums leading-none flex-shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="font-display text-2xl lg:text-3xl text-white italic leading-snug">{b}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Closing */}
+      <section className="relative py-12 lg:py-16">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-80 h-80 bg-navy-100/40 rounded-full blur-3xl" />
+        </div>
+        <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
+          <p className="font-display text-3xl lg:text-4xl text-navy-900 italic leading-snug text-balance">
+            Choosing who to trust with something as important as insurance is a
+            personal decision. We don't take that lightly.
+          </p>
+          <p className="mt-6 text-lg text-navy-500 leading-relaxed max-w-2xl mx-auto">
+            We'd love to get to know you.
+          </p>
+
+          <div className="mt-8 flex justify-center">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-sm font-medium text-white hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
+            >
+              <MessageCircle className="w-4 h-4 text-gold group-hover:text-white transition-colors" />
+              Let's Talk
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

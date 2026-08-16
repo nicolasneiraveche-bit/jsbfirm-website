@@ -63,24 +63,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 lg:py-36 bg-navy-50/40">
+    <section id="contact" className="relative py-20 lg:py-24 bg-navy-50/40">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
           <div className="lg:col-span-5 reveal">
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
               Contact
             </span>
-            <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
               Let's start a{' '}
               <span className="italic text-gold-gradient">conversation.</span>
             </h2>
-            <p className="mt-5 text-navy-500 leading-relaxed text-lg">
+            <p className="mt-4 text-navy-500 leading-relaxed text-lg">
               Whether you're an independent agent looking for the right tools or
               an agency ready to scale, we'd love to hear from you.
             </p>
 
-            <div className="mt-10 space-y-3">
+            <div className="mt-8 space-y-3">
               {contactInfo.map((info) => {
                 const content = (
                   <div className="flex items-center gap-4 rounded-xl border border-navy-200/60 bg-white p-4 hover:border-navy-300 transition-colors duration-300 group">
@@ -133,7 +133,7 @@ export default function Contact() {
               ) : (
                 <>
                   {/* Tabs */}
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <div className="flex gap-2 p-1.5 rounded-2xl bg-navy-50 border border-navy-200/60">
                       {tabs.map((t) => (
                         <button

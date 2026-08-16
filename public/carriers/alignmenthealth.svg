@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <circle cx="35" cy="40" r="16" fill="none" stroke="#E2231A" stroke-width="3"/>
+  <path d="M27 40 L33 46 L43 34" fill="none" stroke="#E2231A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="62" y="38" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#E2231A">Alignment</text>
+  <text x="62" y="54" font-family="Arial, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Health</text>
+</svg>

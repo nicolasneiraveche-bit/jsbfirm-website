@@ -11,10 +11,10 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section id="partners" className="relative py-28 lg:py-36">
+    <section id="partners" className="relative py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Carrier bar at top */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
             Trusted Carriers
           </span>
@@ -31,21 +31,21 @@ export default function Partners() {
         <CarrierMarquee />
 
         {/* Existing partner content below */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mt-24">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center mt-16">
           <div className="reveal">
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
               Partners
             </span>
-            <h2 className="mt-5 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
               Stronger together
             </h2>
-            <p className="mt-5 text-navy-500 leading-relaxed text-lg">
+            <p className="mt-4 text-navy-500 leading-relaxed text-lg">
               We partner with carriers, technology providers, and agency networks
               to give our clients access to the best products, tools, and
               opportunities in the U.S. Health Insurance market.
             </p>
 
-            <div className="mt-10 rounded-2xl border border-navy-200/60 bg-navy-50/50 p-7">
+            <div className="mt-8 rounded-2xl border border-navy-200/60 bg-navy-50/50 p-6">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl gold-gradient flex items-center justify-center">
                   <Handshake className="w-6 h-6 text-navy-900" />
@@ -70,20 +70,20 @@ export default function Partners() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="divide-y divide-navy-200">
             {partners.map((partner, i) => (
               <div
                 key={partner.name}
-                className="reveal group rounded-2xl border border-navy-200/60 bg-white p-6 hover:shadow-lg hover:shadow-navy-900/5 hover:border-navy-300 transition-all duration-400 hover:-translate-y-0.5"
+                className="reveal group flex items-center gap-6 py-5 first:pt-0 transition-all duration-400"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="w-11 h-11 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-4 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
                   <partner.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
                 </div>
-                <h3 className="font-semibold text-navy-900">{partner.name}</h3>
-                <p className="mt-2 text-sm text-navy-500 leading-relaxed">
-                  {partner.desc}
-                </p>
+                <div className="flex-1 flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                  <h3 className="font-display text-lg text-navy-900 tracking-tight flex-shrink-0 sm:w-56">{partner.name}</h3>
+                  <p className="text-sm text-navy-500 leading-relaxed">{partner.desc}</p>
+                </div>
               </div>
             ))}
           </div>
