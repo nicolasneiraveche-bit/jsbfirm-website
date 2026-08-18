@@ -23,7 +23,7 @@ const carriers = [
   { name: 'Ameritas', website: 'https://www.ameritas.com', logo: '/carriers/ameritas.svg' },
   { name: 'Cigna', website: 'https://www.cigna.com', logo: '/carriers/cigna.svg' },
   { name: 'Clover', website: 'https://www.cloverhealth.com', logo: '/carriers/clover.svg' },
-];
+].map((c, i) => ({ ...c, compact: i >= 10 }));
 
 export default function CarrierMarquee() {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -116,7 +116,7 @@ export default function CarrierMarquee() {
                   src={carrier.logo}
                   alt={`${carrier.name} logo`}
                   loading="lazy"
-                  className="h-12 w-auto object-contain"
+                  className={carrier.compact ? 'h-16 w-auto object-contain' : 'h-12 w-auto object-contain'}
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.display = 'none';
                   }}
