@@ -84,9 +84,9 @@ export function AboutTop() {
             <div className="group flex flex-col items-center justify-center gap-3">
               <div className="flex flex-col items-center gap-2">
                 <img
-                  src="/Logo-transparent.png"
+                  src="/Logo1.png"
                   alt="JSB Firm logo"
-                  className="h-28 sm:h-32 lg:h-36 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                  className="h-24 sm:h-28 lg:h-32 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-navy-400">
                   JSB Firm
@@ -97,7 +97,7 @@ export function AboutTop() {
                 <img
                   src="/1.png"
                   alt="CHOICE Innovate logo"
-                  className="h-28 sm:h-32 lg:h-36 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                  className="h-24 sm:h-28 lg:h-32 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-navy-400">
                   CHOICE

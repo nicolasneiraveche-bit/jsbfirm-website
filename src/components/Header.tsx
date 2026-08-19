@@ -40,9 +40,9 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center group">
             <img
-              src="/Logo-transparent.png"
+              src="/Logo1.png"
               alt="JSB Firm logo"
-              className="h-14 w-auto max-w-[260px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-20 w-auto max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </Link>
         </div>

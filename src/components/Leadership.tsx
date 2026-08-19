@@ -137,7 +137,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
       }`}
       style={{ transitionDelay: `${(index % 2) * 100}ms` }}
     >
-      <div className="relative rounded-3xl border border-navy-200/60 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+      <div className="relative rounded-3xl border border-navy-700/60 bg-navy-900 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
         {/* Avatar header */}
         <div className="relative h-72 overflow-hidden">
           <div className={`absolute inset-0 bg-gradient-to-br ${leader.accent}`} />
@@ -170,19 +170,19 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full gold-gradient ring-4 ring-white/10" />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy-900 to-transparent" />
         </div>
 
         {/* Content */}
         <div className="px-8 pb-8 -mt-8 relative">
           <div className="text-center">
-            <h3 className="font-display text-2xl text-navy-900 tracking-tight">
+            <h3 className="font-display text-2xl text-white tracking-tight">
               {leader.name}
             </h3>
             <p className="mt-1 text-sm font-medium text-gold tracking-wide">
               {leader.role}
             </p>
-            <p className="mt-4 text-sm text-navy-500 leading-relaxed max-w-md mx-auto">
+            <p className="mt-4 text-sm text-navy-200 leading-relaxed max-w-md mx-auto">
               {leader.tagline}
             </p>
           </div>
@@ -198,11 +198,11 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Briefcase className="w-4 h-4 text-gold" />
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
+                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-100">
                       Professional Background
                     </h4>
                   </div>
-                  <p className="text-sm text-navy-500 leading-relaxed">
+                  <p className="text-sm text-navy-200 leading-relaxed">
                     {leader.background}
                   </p>
                 </div>
@@ -210,11 +210,11 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Sparkles className="w-4 h-4 text-gold" />
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
+                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-100">
                       Current Role
                     </h4>
                   </div>
-                  <p className="text-sm text-navy-500 leading-relaxed">
+                  <p className="text-sm text-navy-200 leading-relaxed">
                     {leader.currentRole}
                   </p>
                 </div>
@@ -222,7 +222,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Award className="w-4 h-4 text-gold" />
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
+                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-100">
                       Leadership Strengths
                     </h4>
                   </div>
@@ -230,7 +230,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                     {leader.strengths.map((s) => (
                       <span
                         key={s}
-                        className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-navy-50 text-navy-700 border border-navy-200/60"
+                        className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white border border-white/15"
                       >
                         {s}
                       </span>
@@ -241,11 +241,11 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Compass className="w-4 h-4 text-gold" />
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-700">
+                    <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-navy-100">
                       Beyond the Office
                     </h4>
                   </div>
-                  <p className="text-sm text-navy-500 leading-relaxed">
+                  <p className="text-sm text-navy-200 leading-relaxed">
                     {leader.beyondOffice}
                   </p>
                 </div>
@@ -255,7 +255,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
 
           <button
             onClick={() => setExpanded(!expanded)}
-            className="mt-6 w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-navy-200/60 text-sm font-medium text-navy-700 hover:bg-navy-50 hover:border-navy-300 transition-all duration-300"
+            className="mt-6 w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-white/20 text-sm font-medium text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300"
           >
             {expanded ? (
               <>
@@ -299,7 +299,7 @@ export default function Leadership() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 reveal">
           {leaders.map((l, i) => (
             <div key={l.name} className="flex items-center gap-3">
-              <span className="text-sm font-medium text-navy-700">{l.name}</span>
+              <span className="text-sm font-medium text-navy-100">{l.name}</span>
               {i < leaders.length - 1 && (
                 <span className="text-navy-300">|</span>
               )}

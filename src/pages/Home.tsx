@@ -7,6 +7,11 @@ import {
   Eye,
   HeartHandshake,
   ShieldCheck,
+  Cpu,
+  Users,
+  Building2,
+  Sparkles,
+  Network,
 } from 'lucide-react';
 import CarrierMarquee from '@/components/CarrierMarquee';
 
@@ -35,6 +40,48 @@ const benefits = [
   },
 ];
 
+const audiences = [
+  {
+    icon: Users,
+    label: 'For Agents',
+    to: '/agents',
+    title: 'Agents',
+    desc: 'Leads, fast contracting, compliance handled, and a platform built to help you write more business without carrying the overhead alone.',
+  },
+  {
+    icon: Building2,
+    label: 'For Agencies',
+    to: '/agencies',
+    title: 'Agencies',
+    desc: 'Recruiting support, downline visibility, commission clarity, and the infrastructure to grow your team without the weight falling on you.',
+  },
+  {
+    icon: Handshake,
+    label: 'For Partners',
+    to: '/partners',
+    title: 'Partners',
+    desc: 'Carrier-grade relationships and technology that connects, so together we can reach more people with better insurance.',
+  },
+];
+
+const techPillars = [
+  {
+    icon: Cpu,
+    title: 'Technology that works for you',
+    desc: 'Our platform, CHOICE, brings leads, dialer, submissions, and commissions into one login, so you spend less time juggling tools and more time with people.',
+  },
+  {
+    icon: Network,
+    title: 'Support that scales',
+    desc: 'From your first appointment to a downline of dozens, the backing you get from JSB grows with you, not behind you.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Built for what comes next',
+    desc: 'We look toward the future of insurance, automation, AI, and innovation, and we bring that to the people building it alongside us.',
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -52,14 +99,22 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-white/60 px-4 py-1.5 text-xs font-medium text-navy-600 mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+                </span>
+                Insurance &middot; Technology &middot; Innovate
+              </div>
+
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
-                Modern Insurance Solutions for the{' '}
-                <span className="italic text-gold-gradient">Next Generation.</span>
+                Insurance, built for the{' '}
+                <span className="italic text-gold-gradient">people behind it.</span>
               </h1>
 
               <p className="mt-7 text-lg text-navy-500 leading-relaxed max-w-xl">
-                Helping agencies, brokers, and independent agents scale through
-                technology, AI, automation, and operational excellence.
+                JSB Firm is built with real technology and real support for
+                agencies, agents, and partners who want a clearer path to growth.
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -129,31 +184,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What We Do */}
+      {/* Who We Are */}
       <section className="relative py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-5">
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-                What We Do
+                Who We Are
               </span>
               <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
-                We make insurance easier to navigate.
+                An insurance company with technology at the center.
               </h2>
             </div>
             <div className="lg:col-span-7 space-y-4 text-lg text-navy-500 leading-relaxed">
               <p>
-                Insurance can feel overwhelming, impersonal, and full of fine
-                print you were never meant to understand. It doesn't have to be
-                that way.
+                We help agencies, agents, and partners grow through technology,
+                AI, automation, and operational excellence, with a focus on
+                Medicare, life, and general lines.
               </p>
               <p>
-                We sit beside you, walk you through your options in plain
-                language, and help you make decisions you feel confident about.
-                Not because someone pushed you toward them, but because you
-                understood them.
+                This is not a place for members. This is a place for the people
+                who serve them. We give you the tools, the support, and the
+                infrastructure to do that better, and to build something that
+                lasts.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology pillars */}
+      <section className="relative py-12 lg:py-16 bg-navy-50/40">
+        <div className="absolute inset-0 dot-pattern opacity-40" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="max-w-2xl mb-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Technology &amp; Support
+            </span>
+            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+              Better tools, real backing, built for what comes next.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {techPillars.map((p, i) => (
+              <div
+                key={p.title}
+                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-7 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+                  <p.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+                </div>
+                <h3 className="font-display text-xl text-navy-900 tracking-tight mb-3">{p.title}</h3>
+                <p className="text-sm text-navy-500 leading-relaxed">{p.desc}</p>
+                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who JSB is for */}
+      <section className="relative py-12 lg:py-16">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-80 h-80 bg-navy-100/40 rounded-full blur-3xl" />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="max-w-2xl mb-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Who JSB Is For
+            </span>
+            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight leading-tight text-balance">
+              Built for agencies, agents, and partners.
+            </h2>
+            <p className="mt-4 text-lg text-navy-500 leading-relaxed">
+              Here is how we support you:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {audiences.map((a, i) => (
+              <Link
+                key={a.title}
+                to={a.to}
+                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-7 hover:border-gold/40 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1 flex flex-col"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
+                  <a.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+                </div>
+                <h3 className="font-display text-xl text-navy-900 tracking-tight mb-2">{a.title}</h3>
+                <p className="text-sm text-navy-500 leading-relaxed flex-1">{a.desc}</p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-navy-700 group-hover:text-gold transition-colors duration-300">
+                  Explore {a.label}
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -191,29 +320,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Our Commitment */}
-      <section className="relative py-12 lg:py-16">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-50/50 rounded-full blur-3xl" />
-          <div className="absolute top-0 left-1/4 w-80 h-80 bg-navy-100/40 rounded-full blur-3xl" />
-        </div>
-        <div className="mx-auto max-w-4xl px-6 lg:px-10 text-center">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-            Our Commitment
-          </span>
-          <p className="mt-5 font-display text-3xl lg:text-4xl text-navy-900 italic leading-snug text-balance">
-            We're not simply trying to sell you a policy. We're trying to help
-            you make a decision you feel confident about.
-          </p>
-          <p className="mt-6 text-lg text-navy-500 leading-relaxed max-w-2xl mx-auto">
-            That means listening before recommending, explaining before asking
-            you to sign, and being there after the paperwork is done. Insurance
-            is important. The way you're treated while getting it should feel
-            that way too.
-          </p>
         </div>
       </section>
 
