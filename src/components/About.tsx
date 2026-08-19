@@ -84,7 +84,7 @@ export function AboutTop() {
             <div className="group flex flex-col items-center justify-center gap-3">
               <div className="flex flex-col items-center gap-2">
                 <img
-                  src="/JSB_Firm_Logo_full_transparent.png"
+                  src="/Logo-transparent.png"
                   alt="JSB Firm logo"
                   className="h-28 sm:h-32 lg:h-36 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
                 />
