@@ -112,12 +112,12 @@ export default function CarrierMarquee() {
               className="group flex flex-col items-center justify-center gap-3 flex-shrink-0"
             >
               <div className="w-44 h-32 rounded-2xl border border-navy-200/60 bg-white flex flex-col items-center justify-center px-5 gap-3 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-navy-900/5 group-hover:border-gold/40">
-                <div className="w-full h-12 flex items-center justify-center">
+                <div className="w-32 h-14 flex items-center justify-center">
                   <img
                     src={carrier.logo}
                     alt={`${carrier.name} logo`}
                     loading="lazy"
-                    className="h-12 w-auto max-w-full object-contain"
+                    className="w-full h-full object-contain"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.display = 'none';
                     }}
