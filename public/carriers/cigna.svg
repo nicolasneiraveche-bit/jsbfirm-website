@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <circle cx="35" cy="40" r="16" fill="#006BB6"/>
-  <path d="M28 40 Q35 33 42 40 Q35 47 28 40" fill="#fff"/>
-  <text x="62" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#006BB6">Cigna</text>
-  <text x="62" y="55" font-family="Arial, sans-serif" font-size="9" font-weight="500" fill="#6B7280">Healthcare</text>
+  <circle cx="34" cy="40" r="16" fill="#006BB6"/>
+  <path d="M26 40 Q34 30 42 40 Q34 50 26 40" fill="#fff"/>
+  <text x="58" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#006BB6">Cigna</text>
+  <text x="58" y="58" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#6B7280">Healthcare</text>
 </svg>

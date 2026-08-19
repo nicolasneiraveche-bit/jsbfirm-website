@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <rect x="20" y="18" width="20" height="44" rx="2" fill="#0063B2"/>
-  <rect x="10" y="28" width="40" height="24" rx="2" fill="#0063B2"/>
-  <path d="M55 40 L65 30 L75 40 L65 50 Z" fill="#0063B2"/>
-  <text x="90" y="48" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#0063B2">Blue Cross</text>
-  <text x="90" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#0063B2">Blue Shield</text>
+  <rect x="58" y="8" width="30" height="64" rx="3" fill="#0063B2"/>
+  <rect x="50" y="22" width="46" height="36" rx="3" fill="#0063B2"/>
+  <text x="108" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0063B2">Blue Cross</text>
+  <text x="108" y="60" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#0063B2">Blue Shield</text>
 </svg>
