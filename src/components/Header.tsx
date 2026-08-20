@@ -42,7 +42,7 @@ export default function Header() {
             <img
               src="/Logo1.png"
               alt="JSB Firm logo"
-              className="h-20 w-auto max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-[3.75rem] w-auto max-w-[240px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </Link>
         </div>

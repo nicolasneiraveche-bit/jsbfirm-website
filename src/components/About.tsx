@@ -86,7 +86,7 @@ export function AboutTop() {
                 <img
                   src="/Logo1.png"
                   alt="JSB Firm logo"
-                  className="h-24 sm:h-28 lg:h-32 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                  className="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-navy-400">
                   JSB Firm
