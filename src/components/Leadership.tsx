@@ -137,7 +137,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
       }`}
       style={{ transitionDelay: `${(index % 2) * 100}ms` }}
     >
-      <div className="relative rounded-3xl border border-navy-700/60 bg-navy-900 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+      <div className="relative rounded-3xl border border-navy-800/60 bg-navy-950 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
         {/* Avatar header */}
         <div className="relative h-72 overflow-hidden">
           <div className={`absolute inset-0 bg-gradient-to-br ${leader.accent}`} />
@@ -170,7 +170,7 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full gold-gradient ring-4 ring-white/10" />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy-900 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy-950 to-transparent" />
         </div>
 
         {/* Content */}
