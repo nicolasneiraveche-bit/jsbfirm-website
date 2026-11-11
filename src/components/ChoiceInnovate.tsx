@@ -1,53 +1,5 @@
-import {
-  Users,
-  PhoneCall,
-  FileText,
-  Receipt,
-  RefreshCw,
-  ShieldCheck,
-  BarChart3,
-  Network,
-  ArrowRight,
-  ExternalLink,
-  Sparkles,
-} from 'lucide-react';
-
-const CHOICE_URL = 'https://choiceinnovate.com/';
-
-const upcoming = [
-  {
-    icon: Users,
-    title: 'Leads, organized and routed automatically',
-  },
-  {
-    icon: PhoneCall,
-    title: 'A built-in dialer — no separate bill, no separate login',
-  },
-  {
-    icon: FileText,
-    title: 'Submissions and plan comparisons, without hopping to a carrier portal',
-  },
-  {
-    icon: Receipt,
-    title: 'Live commission tracking',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Automated retention outreach',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Compliance handled in the background',
-  },
-  {
-    icon: BarChart3,
-    title: 'Real-time reporting, one screen',
-  },
-  {
-    icon: Network,
-    title: 'Hierarchy and recruiting tools for agencies',
-  },
-];
+import { Sparkles, Cpu, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function ChoiceInnovate() {
   return (
@@ -70,8 +22,8 @@ export default function ChoiceInnovate() {
               </div>
 
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
-                We got tired of six tools too.{' '}
-                <span className="italic text-gold-gradient">So we're building one.</span>
+                Coming soon,{' '}
+                <span className="italic text-gold-gradient">one platform with every tool you use today.</span>
               </h1>
             </div>
 
@@ -95,15 +47,15 @@ export default function ChoiceInnovate() {
             </span>
             <div className="mt-4 space-y-4 text-lg lg:text-xl text-navy-600 leading-relaxed">
               <p>
-                Every agent runs a handful of different tools just to do one job — a
-                lead system, a dialer, a quoting tool, a commission tracker, a
-                compliance system, none of them talking to each other. We lived
-                inside that mess for years. So our team is building CHOICE: one
-                platform, one login, everything you need to run your business.
+                Running an insurance business today means stitching together a
+                stack of disconnected tools just to get through the day. We
+                lived inside that mess for years, and we decided there had to be
+                a better way. So we're building one platform that brings it all
+                together — one login, everything you need to run your business.
               </p>
               <p className="text-navy-700 font-medium">
-                CHOICE is developed by the same people running JSB — built by people
-                who've felt this industry's problems firsthand, not outside
+                It's being built by the same people running JSB — by people who
+                have felt this industry's problems firsthand, not outside
                 observers guessing at solutions.
               </p>
             </div>
@@ -125,24 +77,38 @@ export default function ChoiceInnovate() {
             <h2 className="mt-3 font-display text-4xl lg:text-5xl text-navy-900 tracking-tight">
               One platform. Every tool you use today.
             </h2>
+            <p className="mt-4 text-lg text-navy-500 leading-relaxed max-w-2xl">
+              We're not ready to share the details just yet, but if you've ever
+              wished the tools you rely on every day actually talked to each
+              other, this is for you.
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {upcoming.map((item, i) => (
-              <div
-                key={item.title}
-                className="reveal group relative rounded-2xl bg-white border border-navy-200/60 p-6 hover:border-navy-300 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 hover:-translate-y-1"
-                style={{ transitionDelay: `${i * 50}ms` }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
-                  <item.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+          <div className="relative rounded-3xl bg-white border border-navy-200/60 p-10 lg:p-14 overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-72 h-72 bg-gold-50/60 rounded-full blur-3xl" />
+            <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+              <div className="max-w-xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-navy-200 bg-navy-50 px-4 py-1.5 text-xs font-medium text-navy-600 mb-4">
+                  <Cpu className="w-3.5 h-3.5 text-gold" />
+                  In Development
                 </div>
-                <p className="text-sm font-medium text-navy-700 leading-relaxed">
-                  {item.title}
+                <h3 className="font-display text-3xl lg:text-4xl text-navy-900 tracking-tight">
+                  The details are coming.
+                </h3>
+                <p className="mt-3 text-navy-600 leading-relaxed">
+                  We're putting the pieces in place now. When there's something
+                  real to show, this is where you'll find it.
                 </p>
-                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
-            ))}
+
+              <Link
+                to="/join"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-8 py-4 text-sm font-medium text-white hover:bg-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
+              >
+                Stay in the Loop
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -155,26 +121,13 @@ export default function ChoiceInnovate() {
               A Different Kind of Investment
             </span>
             <p className="mt-4 text-lg lg:text-xl text-navy-600 leading-relaxed">
-              CHOICE isn't a side project — it's us putting our money where our
-              experience is, building the platform we always wished existed when we
-              were the ones on the phones.
+              This isn't a side project — it's us putting our money where our
+              experience is, building the platform we always wished existed when
+              we were the ones on the phones.
             </p>
             <p className="mt-4 text-lg lg:text-xl text-navy-700 font-medium leading-relaxed">
-              CHOICE has its own home. Head over to see the platform for yourself.
+              We'll share more when the time is right.
             </p>
-
-            <div className="mt-8">
-              <a
-                href={CHOICE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-8 py-4 text-sm font-medium text-white hover:bg-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
-              >
-                <ExternalLink className="w-4 h-4" />
-                Visit CHOICE
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
           </div>
         </div>
       </div>

@@ -1,28 +1,19 @@
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  ExternalLink,
   TrendingUp,
-  ShieldCheck,
   Cpu,
-  Brain,
-  Clock,
   HeartHandshake,
 } from 'lucide-react';
 
-const CHOICE_URL = 'https://choiceinnovate.com/';
-
 const aiPoints = [
   {
-    icon: ShieldCheck,
-    title: 'Compliance records that build themselves.',
+    title: 'Less time spent on paperwork and repetitive follow-up.',
   },
   {
-    icon: Clock,
-    title: 'Retention outreach that starts before a client thinks about leaving.',
+    title: 'Support that works quietly in the background.',
   },
   {
-    icon: Brain,
     title: 'Coaching built into your workflow, not scheduled three weeks out.',
   },
 ];
@@ -42,9 +33,9 @@ export default function WhyJSB() {
           </h2>
           <p className="mt-4 text-lg text-navy-500 leading-relaxed">
             Other industries have already put AI to work — less busywork, more time
-            on what matters. Insurance is still catching up. We're building CHOICE
-            with AI at the core, not to replace agents, but to take the paperwork,
-            follow-up, and repetitive tasks off your plate.
+            on what matters. Insurance is still catching up. We're building a
+            platform with AI at the core, not to replace agents, but to take the
+            paperwork, follow-up, and repetitive tasks off your plate.
           </p>
         </div>
 
@@ -56,7 +47,7 @@ export default function WhyJSB() {
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-navy-50 border border-navy-200/60 flex items-center justify-center group-hover:bg-navy-900 group-hover:border-navy-900 transition-all duration-300">
-                <p.icon className="w-5 h-5 text-navy-700 group-hover:text-gold transition-colors duration-300" />
+                <span className="w-2 h-2 rounded-full bg-gold transition-colors duration-300" />
               </div>
               <p className="text-lg font-medium text-navy-700 leading-relaxed">
                 {p.title}
@@ -106,7 +97,7 @@ export default function WhyJSB() {
           </Link>
         </div>
 
-        {/* CHOICE CTA */}
+        {/* What's Coming CTA */}
         <div className="relative rounded-3xl bg-navy-900 overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 grid-pattern opacity-20" />
@@ -122,11 +113,12 @@ export default function WhyJSB() {
                   Something Real Is Coming
                 </div>
                 <h3 className="font-display text-3xl lg:text-4xl text-white tracking-tight">
-                  One platform. One login. Everything you need.
+                  Coming soon, one platform with every tool you use today.
                 </h3>
                 <p className="mt-3 text-navy-300 leading-relaxed">
-                  Most agents juggle five or six different tools to do one job. We're
-                  building CHOICE to fix that. It's ours. Soon, it'll be yours too.
+                  Most agents juggle a handful of disconnected tools to do one job.
+                  We're building a platform to fix that. We'll share more when the
+                  time is right.
                 </p>
               </div>
 
@@ -135,18 +127,9 @@ export default function WhyJSB() {
                   to="/choice"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-navy-900 hover:bg-gold hover:text-white transition-all duration-300 hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-0.5"
                 >
-                  Explore CHOICE
+                  See What's Coming
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
-                <a
-                  href={CHOICE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  CHOICE's Website
-                  <ExternalLink className="w-4 h-4 text-gold" />
-                </a>
               </div>
             </div>
           </div>

@@ -49,7 +49,7 @@ const benefits = [
   {
     icon: LayoutDashboard,
     title: 'A platform built for you, coming soon.',
-    desc: 'CHOICE will bring your leads, dialer, submissions, and commissions into one login. We built it because we got tired of the same five tired tools.',
+    desc: "We're building one platform that brings every tool you use today into one login — because we got tired of juggling the same disconnected systems.",
   },
   {
     icon: TrendingUp,

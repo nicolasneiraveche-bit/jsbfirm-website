@@ -23,7 +23,7 @@ const leaders: Leader[] = [
     tagline:
       'Entrepreneurial operator bringing a product-led perspective to insurance and building JSB Firm around a clearer, more customer-centered future.',
     background:
-      "Javier's path to CEO was entrepreneurial rather than technical first. He built and successfully ran a marketing technology company, where hands-on work with front-end systems and digital infrastructure taught him to identify structural gaps most executives never see. That instinct led him to insurance: a legacy industry still organized around transactions while customers increasingly expect products. Javier brought key players together to found JSB Firm and lead its flagship platform, CHOICE.",
+      "Javier's path to CEO was entrepreneurial rather than technical first. He built and successfully ran a marketing technology company, where hands-on work with front-end systems and digital infrastructure taught him to identify structural gaps most executives never see. That instinct led him to insurance: a legacy industry still organized around transactions while customers increasingly expect products. Javier brought key players together to found JSB Firm and lead a platform currently in development.",
     currentRole:
       'As Founder & CEO of JSB Firm, Javier sets strategies the company can execute against, allocates capital with discipline, builds and retains the right team, and maintains credibility with the people who decide whether to fund, partner with, or join the company.',
     strengths: [
