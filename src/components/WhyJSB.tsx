@@ -113,11 +113,11 @@ export default function WhyJSB() {
                   Something Real Is Coming
                 </div>
                 <h3 className="font-display text-3xl lg:text-4xl text-white tracking-tight">
-                  Coming soon, one platform with every tool you use today.
+                  CHOICE is coming, one platform with every tool you use today.
                 </h3>
                 <p className="mt-3 text-navy-300 leading-relaxed">
                   Most agents juggle a handful of disconnected tools to do one job.
-                  We're building a platform to fix that. We'll share more when the
+                  We're building CHOICE to fix that. We'll share more when the
                   time is right.
                 </p>
               </div>

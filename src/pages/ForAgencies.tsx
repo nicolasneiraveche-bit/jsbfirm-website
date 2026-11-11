@@ -42,7 +42,7 @@ const benefits = [
   },
   {
     icon: LayoutDashboard,
-    title: 'A platform built for organizations like yours.',
+    title: 'CHOICE, built for organizations like yours.',
     desc: "We're building a platform with everything your organization needs, all in one place. We'll share more when the time is right.",
   },
   {

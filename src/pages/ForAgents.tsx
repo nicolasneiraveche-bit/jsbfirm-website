@@ -48,7 +48,7 @@ const benefits = [
   },
   {
     icon: LayoutDashboard,
-    title: 'A platform built for you, coming soon.',
+    title: 'CHOICE, built for you, coming soon.',
     desc: "We're building one platform that brings every tool you use today into one login — because we got tired of juggling the same disconnected systems.",
   },
   {

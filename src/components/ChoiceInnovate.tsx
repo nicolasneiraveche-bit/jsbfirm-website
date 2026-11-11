@@ -22,7 +22,7 @@ export default function ChoiceInnovate() {
               </div>
 
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-navy-900 tracking-tightest leading-[1.02] text-balance">
-                Coming soon,{' '}
+                CHOICE is coming,{' '}
                 <span className="italic text-gold-gradient">one platform with every tool you use today.</span>
               </h1>
             </div>
@@ -50,8 +50,9 @@ export default function ChoiceInnovate() {
                 Running an insurance business today means stitching together a
                 stack of disconnected tools just to get through the day. We
                 lived inside that mess for years, and we decided there had to be
-                a better way. So we're building one platform that brings it all
-                together — one login, everything you need to run your business.
+                a better way. So we're building CHOICE — one platform that
+                brings it all together, one login, everything you need to run
+                your business.
               </p>
               <p className="text-navy-700 font-medium">
                 It's being built by the same people running JSB — by people who
@@ -121,7 +122,7 @@ export default function ChoiceInnovate() {
               A Different Kind of Investment
             </span>
             <p className="mt-4 text-lg lg:text-xl text-navy-600 leading-relaxed">
-              This isn't a side project — it's us putting our money where our
+              CHOICE isn't a side project — it's us putting our money where our
               experience is, building the platform we always wished existed when
               we were the ones on the phones.
             </p>

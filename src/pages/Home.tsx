@@ -68,7 +68,7 @@ const techPillars = [
   {
     icon: Cpu,
     title: 'Technology that works for you',
-    desc: 'Coming soon, one platform with every tool you use today — so you spend less time juggling disconnected systems and more time with people.',
+    desc: 'CHOICE is coming, one platform with every tool you use today — so you spend less time juggling disconnected systems and more time with people.',
   },
   {
     icon: Network,
